@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Vaibhavsolanki1
-- 👀 I’m interested in Reading , astronomy , chess
+- 👀 I’m interested in Reading , astronomy , chess , robotics , development , 
 
 - 🌱 I’m currently a student
   
