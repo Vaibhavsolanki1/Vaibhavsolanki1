@@ -6,6 +6,7 @@
   <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">MOST USED LANGUAGES</text>
   <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
 
+  {% if stats.languages and stats.languages | length > 0 %}
   <!-- Donut Chart -->
   <g transform="translate(40, 0)">
     {{ donut_paths | safe }}
@@ -26,4 +27,9 @@
     </g>
     {% endfor %}
   </g>
+  {% else %}
+  <g transform="translate(400, 110)">
+    <text fill="var(--text-muted)" font-family="var(--font-family)" font-size="12" text-anchor="middle">Data unavailable (Authentication required)</text>
+  </g>
+  {% endif %}
 </svg>

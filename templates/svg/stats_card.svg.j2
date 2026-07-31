@@ -11,35 +11,55 @@
     <g transform="translate(0, 0)">
       <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">TOTAL COMMITS</text>
+      {% if stats.total_commits is string %}
+      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">{{ stats.total_commits }}</text>
+      {% else %}
       <text x="16" y="66" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">{{ stats.total_commits }}</text>
+      {% endif %}
     </g>
 
     <!-- Total PRs -->
     <g transform="translate(154, 0)">
       <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">PULL REQUESTS</text>
+      {% if stats.total_prs is string %}
+      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">{{ stats.total_prs }}</text>
+      {% else %}
       <text x="16" y="66" fill="var(--text-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">{{ stats.total_prs }}</text>
+      {% endif %}
     </g>
 
     <!-- Issues -->
     <g transform="translate(308, 0)">
       <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">ISSUES</text>
+      {% if stats.total_issues is string %}
+      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">{{ stats.total_issues }}</text>
+      {% else %}
       <text x="16" y="66" fill="var(--text-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">{{ stats.total_issues }}</text>
+      {% endif %}
     </g>
 
     <!-- Stars -->
     <g transform="translate(462, 0)">
       <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">STARS EARNED</text>
+      {% if stats.starred is string %}
+      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">{{ stats.starred }}</text>
+      {% else %}
       <text x="16" y="66" fill="var(--status-warning)" font-family="var(--font-family)" font-size="24" font-weight="700">{{ stats.starred }}</text>
+      {% endif %}
     </g>
 
     <!-- Followers -->
     <g transform="translate(616, 0)">
       <rect width="136" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">FOLLOWERS</text>
+      {% if stats.followers is string %}
+      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">{{ stats.followers }}</text>
+      {% else %}
       <text x="16" y="66" fill="var(--status-success)" font-family="var(--font-family)" font-size="24" font-weight="700">{{ stats.followers }}</text>
+      {% endif %}
     </g>
   </g>
 </svg>

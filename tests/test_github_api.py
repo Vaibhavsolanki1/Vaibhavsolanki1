@@ -10,7 +10,7 @@ from scripts.github_api import GitHubAPIClient
 
 
 def test_github_api_mock_fallback(tmp_path: Path) -> None:
-    """Verify API client loads mock fixture when mode='mock'."""
+    """Verify API client loads mock fixture when mode='mock' explicitly."""
     cache = CacheManager(cache_dir=tmp_path)
     client = GitHubAPIClient(
         token=None, cache_manager=cache, mock_fixture_path="tests/mock_github_data.json"
@@ -22,6 +22,19 @@ def test_github_api_mock_fallback(tmp_path: Path) -> None:
     assert stats["total_commits"] == 412
     assert len(stats["languages"]) >= 1
     assert stats["languages"][0]["name"] == "Python"
+
+
+def test_github_api_unauthenticated_fallback(tmp_path: Path) -> None:
+    """Verify unauthenticated client returns unavailable state without hardcoded fake stats."""
+    cache = CacheManager(cache_dir=tmp_path)
+    client = GitHubAPIClient(token=None, cache_manager=cache)
+
+    stats = client.fetch_user_stats("vaibhavsolanki1", mode="live")
+
+    assert stats["username"] == "vaibhavsolanki1"
+    assert stats["total_commits"] == "Data unavailable"
+    assert stats["followers"] == "Data unavailable"
+    assert stats["is_available"] is False
 
 
 def test_github_api_normalization() -> None:

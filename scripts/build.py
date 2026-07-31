@@ -75,7 +75,7 @@ def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
     asset_paths["hero"] = f"{config.system.output_dir}/hero.svg"
 
     # 2. Render Analytics SVG Sections
-    github_client = GitHubAPIClient(mock_fixture_path="tests/mock_github_data.json")
+    github_client = GitHubAPIClient()
     analytics_assets = generate_analytics(
         config, github_client=github_client, output_dir=output_dir
     )

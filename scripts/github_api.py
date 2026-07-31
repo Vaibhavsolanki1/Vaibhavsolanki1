@@ -76,22 +76,29 @@ class GitHubAPIClient:
     def fetch_user_stats(
         self, username: str, mode: str = "live", ttl: int = 86400
     ) -> dict[str, Any]:
-        """Fetch user statistics with caching, mode checking, and mock fallback."""
+        """Fetch user statistics with caching, mode checking, and unavailable data handling."""
         cache_key = f"github_user_stats_{username}"
 
-        # 1. Check cache first
+        # 1. If explicit mock mode requested (e.g. unit tests)
+        if mode == "mock":
+            logger.info("Explicit mock mode requested. Using mock fixture.")
+            return self._load_mock_fixture()
+
+        # 2. Check disk cache
         if mode != "force_live":
             cached_data = self.cache.get(cache_key, ttl=ttl)
             if cached_data:
                 logger.info(f"Loaded GitHub statistics for '{username}' from cache.")
                 return cached_data
 
-        # 2. Check if mock mode requested or token absent
-        if mode == "mock" or not self.token:
-            logger.info("Using mock/cached fixture for GitHub stats data.")
-            return self._load_mock_fixture()
+        # 3. Check authentication
+        if not self.token:
+            logger.warning(
+                "GITHUB_TOKEN absent and no cached data available. Returning unavailable metrics."
+            )
+            return self._unavailable_user_stats(username)
 
-        # 3. Live GraphQL query
+        # 4. Live GraphQL query
         try:
             logger.info(f"Fetching live GitHub GraphQL statistics for '{username}'...")
             raw_response = self._execute_graphql(
@@ -101,16 +108,33 @@ class GitHubAPIClient:
             self.cache.set(cache_key, normalized)
             return normalized
         except Exception as e:
-            logger.error(f"Live API request failed: {e}. Falling back to mock fixture.")
-            return self._load_mock_fixture()
+            logger.error(f"Live API request failed: {e}. Returning unavailable metrics.")
+            return self._unavailable_user_stats(username)
 
     def _load_mock_fixture(self) -> dict[str, Any]:
-        """Load static mock fixture from disk."""
+        """Load static mock fixture from disk (for unit testing)."""
         if not self.mock_fixture_path.exists():
             raise FileNotFoundError(f"Mock fixture missing at {self.mock_fixture_path}")
         with open(self.mock_fixture_path, encoding="utf-8") as f:
             raw: dict[str, Any] = json.load(f)
         return self._normalize_user_stats(raw)
+
+    def _unavailable_user_stats(self, username: str) -> dict[str, Any]:
+        """Return clean unauthenticated/unavailable metric payload without hardcoded fake numbers."""
+        return {
+            "name": username,
+            "username": username,
+            "followers": "Data unavailable",
+            "starred": "Data unavailable",
+            "total_commits": "Data unavailable",
+            "total_prs": "Data unavailable",
+            "total_issues": "Data unavailable",
+            "total_contributions": "Data unavailable",
+            "contribution_weeks": [],
+            "languages": [],
+            "repositories_count": "Data unavailable",
+            "is_available": False,
+        }
 
     def _normalize_user_stats(self, raw_data: dict[str, Any]) -> dict[str, Any]:
         """Normalize raw GraphQL response dictionary into clean metrics structure."""
@@ -151,4 +175,5 @@ class GitHubAPIClient:
             "contribution_weeks": calendar.get("weeks", []),
             "languages": sorted_languages[:8],  # Top 8 languages
             "repositories_count": user.get("repositories", {}).get("totalCount", 0),
+            "is_available": True,
         }
