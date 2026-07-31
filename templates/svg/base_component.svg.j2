@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ width | default(800) }} {{ height | default(200) }}" width="{{ width | default(800) }}" height="{{ height | default(200) }}" fill="none">
+  {{ system_styles | safe }}
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  <text x="24" y="40" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">{{ title | default("Component Header") }}</text>
+  <text x="24" y="70" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="14">{{ content | default("Sample component content.") }}</text>
+</svg>

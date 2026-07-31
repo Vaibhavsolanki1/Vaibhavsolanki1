@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ width | default(800) }} {{ height | default(280) }}" width="{{ width | default(800) }}" height="{{ height | default(280) }}" fill="none">
+  {{ system_styles | safe }}
+  
+  <!-- Terminal Window Background -->
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <!-- Terminal Header Controls -->
+  <g class="terminal-controls" transform="translate(16, 16)">
+    <circle cx="0" cy="0" r="5" fill="#FF5F56"/>
+    <circle cx="14" cy="0" r="5" fill="#FFBD2E"/>
+    <circle cx="28" cy="0" r="5" fill="#27C93F"/>
+    <text x="44" y="4" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">bash - vaibhavsolanki1@github:~</text>
+  </g>
+  
+  <!-- Horizontal Separator -->
+  <line x1="0" y1="36" x2="100%" y2="36" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <!-- ASCII Portrait -->
+  <g transform="translate(0, 10)">
+    {{ ascii_portrait | safe }}
+  </g>
+  
+  <!-- Status & Profile Info Block -->
+  <g class="profile-info" transform="translate(420, 60)">
+    <!-- Status Indicator Dot -->
+    <circle cx="8" cy="8" r="4" fill="var(--status-success)">
+      {{ pulse_anim | safe }}
+    </circle>
+    <text x="20" y="12" fill="var(--status-success)" font-family="var(--font-family)" font-size="12" font-weight="500">{{ status }}</text>
+    
+    <!-- User Details -->
+    <text x="0" y="44" fill="var(--text-primary)" font-family="var(--font-family)" font-size="20" font-weight="700">{{ name }}</text>
+    <text x="0" y="68" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">{{ title }}</text>
+    
+    <text x="0" y="104" fill="var(--text-muted)" font-family="var(--font-family)" font-size="12">LOCATION: <tspan fill="var(--text-primary)">{{ location }}</tspan></text>
+    <text x="0" y="124" fill="var(--text-muted)" font-family="var(--font-family)" font-size="12">CURRENT FOCUS: <tspan fill="var(--accent-primary)">{{ focus }}</tspan></text>
+    <text x="0" y="144" fill="var(--text-muted)" font-family="var(--font-family)" font-size="12">AVAILABILITY: <tspan fill="var(--text-primary)">{{ availability }}</tspan></text>
+  </g>
+</svg>

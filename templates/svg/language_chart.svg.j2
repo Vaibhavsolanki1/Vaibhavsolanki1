@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" fill="none">
+  {{ system_styles | safe }}
+  
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">MOST USED LANGUAGES</text>
+  <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
+
+  <!-- Donut Chart -->
+  <g transform="translate(40, 0)">
+    {{ donut_paths | safe }}
+  </g>
+
+  <!-- Language Progress Bars / Legend -->
+  <g transform="translate(300, 60)">
+    {% for lang in stats.languages %}
+    {% set y_offset = loop.index0 * 24 %}
+    <g transform="translate(0, {{ y_offset }})">
+      <circle cx="6" cy="6" r="5" fill="{{ lang.color }}"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">{{ lang.name }}</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">{{ lang.percentage }}%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="{{ (lang.percentage / 100.0) * 240 }}" height="8" rx="4" fill="{{ lang.color }}"/>
+    </g>
+    {% endfor %}
+  </g>
+</svg>

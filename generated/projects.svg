@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" fill="none"><style>
+/* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
+}
+:root {
+  --font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  --bg-canvas: #0D1117;
+  --bg-surface: #161B22;
+  --bg-subtle: #21262D;
+  --border-muted: #30363D;
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #484F58;
+  --accent-primary: #58A6FF;
+  --accent-hover: #79C0FF;
+  --accent-active: #1F6FEB;
+  --accent-subtle: #388BFD26;
+  --contribution-0: #161B22;
+  --contribution-1: #0E4429;
+  --contribution-2: #006D32;
+  --contribution-3: #26A641;
+  --contribution-4: #39D353;
+  --status-success: #3FB950;
+  --status-warning: #D29922;
+  --status-error: #F85149;
+  --status-info: #58A6FF;
+}
+</style><rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/><text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">FEATURED PROJECTS</text><line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/><g transform="translate(24, 60)"><g transform="translate(0, 0)"><rect width="752" height="84" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/><text x="16" y="28" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">Metry</text><rect x="650" y="14" width="86" height="22" rx="11" fill="var(--accent-subtle)" stroke="var(--accent-primary)" stroke-width="1"/><text x="693" y="29" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="10" font-weight="500" text-anchor="middle">Active</text><text x="16" y="52" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">AI Wellness Platform</text><g transform="translate(16, 60)"><text x="0" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#Python</text><text x="90" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#AI</text><text x="180" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#FastAPI</text><text x="270" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#React</text></g></g><g transform="translate(0, 100)"><rect width="752" height="84" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/><text x="16" y="28" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">Kalam</text><rect x="650" y="14" width="86" height="22" rx="11" fill="var(--accent-subtle)" stroke="var(--accent-primary)" stroke-width="1"/><text x="693" y="29" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="10" font-weight="500" text-anchor="middle">In Development</text><text x="16" y="52" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">Offline AI Assistant</text><g transform="translate(16, 60)"><text x="0" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#Python</text><text x="90" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#LLM</text><text x="180" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#C++</text><text x="270" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#ONNX</text></g></g><g transform="translate(0, 200)"><rect width="752" height="84" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/><text x="16" y="28" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">Enigma Chess Club</text><rect x="650" y="14" width="86" height="22" rx="11" fill="var(--accent-subtle)" stroke="var(--accent-primary)" stroke-width="1"/><text x="693" y="29" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="10" font-weight="500" text-anchor="middle">Active</text><text x="16" y="52" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">Chess Platform &amp; Analytics</text><g transform="translate(16, 60)"><text x="0" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#TypeScript</text><text x="90" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#Python</text><text x="180" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#WebSockets</text></g></g></g></svg>

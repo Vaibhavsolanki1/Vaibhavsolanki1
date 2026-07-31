@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180" width="800" height="180" fill="none">
+  <style>
+/* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
+}
+:root {
+  --font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  --bg-canvas: #0D1117;
+  --bg-surface: #161B22;
+  --bg-subtle: #21262D;
+  --border-muted: #30363D;
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #484F58;
+  --accent-primary: #58A6FF;
+  --accent-hover: #79C0FF;
+  --accent-active: #1F6FEB;
+  --accent-subtle: #388BFD26;
+  --contribution-0: #161B22;
+  --contribution-1: #0E4429;
+  --contribution-2: #006D32;
+  --contribution-3: #26A641;
+  --contribution-4: #39D353;
+  --status-success: #3FB950;
+  --status-warning: #D29922;
+  --status-error: #F85149;
+  --status-info: #58A6FF;
+}
+</style>
+  
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">GITHUB ANALYTICS &amp; METRICS</text>
+  <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
+
+  <g transform="translate(24, 60)">
+    <!-- Total Commits -->
+    <g transform="translate(0, 0)">
+      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">TOTAL COMMITS</text>
+      <text x="16" y="66" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">412</text>
+    </g>
+
+    <!-- Total PRs -->
+    <g transform="translate(154, 0)">
+      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">PULL REQUESTS</text>
+      <text x="16" y="66" fill="var(--text-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">35</text>
+    </g>
+
+    <!-- Issues -->
+    <g transform="translate(308, 0)">
+      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">ISSUES</text>
+      <text x="16" y="66" fill="var(--text-primary)" font-family="var(--font-family)" font-size="24" font-weight="700">18</text>
+    </g>
+
+    <!-- Stars -->
+    <g transform="translate(462, 0)">
+      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">STARS EARNED</text>
+      <text x="16" y="66" fill="var(--status-warning)" font-family="var(--font-family)" font-size="24" font-weight="700">128</text>
+    </g>
+
+    <!-- Followers -->
+    <g transform="translate(616, 0)">
+      <rect width="136" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">FOLLOWERS</text>
+      <text x="16" y="66" fill="var(--status-success)" font-family="var(--font-family)" font-size="24" font-weight="700">42</text>
+    </g>
+  </g>
+</svg>

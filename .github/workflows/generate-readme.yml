@@ -1,0 +1,55 @@
+name: Generate GitHub Profile 2.0 Assets
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Midnight UTC daily
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'config.yml'
+      - 'scripts/**'
+      - 'templates/**'
+      - 'assets/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Profile SVGs and README
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m scripts.build
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md generated/
+          if git diff --staged --quiet; then
+            echo "No changes detected in generated assets. Exiting."
+          else
+            git commit -m "chore(auto): update profile assets [skip ci]"
+            git push
+          fi

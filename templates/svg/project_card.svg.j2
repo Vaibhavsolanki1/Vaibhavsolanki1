@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 {{ height | default(260) }}" width="800" height="{{ height | default(260) }}" fill="none">
+  {{ system_styles | safe }}
+  
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">FEATURED PROJECTS</text>
+  <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
+
+  <g transform="translate(24, 60)">
+    {% for proj in projects %}
+    {% set y_offset = loop.index0 * 100 %}
+    <g transform="translate(0, {{ y_offset }})">
+      <rect width="752" height="84" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      
+      <!-- Project Title & Badge -->
+      <text x="16" y="28" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">{{ proj.name }}</text>
+      <rect x="650" y="14" width="86" height="22" rx="11" fill="var(--accent-subtle)" stroke="var(--accent-primary)" stroke-width="1"/>
+      <text x="693" y="29" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="10" font-weight="500" text-anchor="middle">{{ proj.status }}</text>
+
+      <!-- Description -->
+      <text x="16" y="52" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">{{ proj.description }}</text>
+      
+      <!-- Tech Stack Badges -->
+      <g transform="translate(16, 60)">
+        {% for t in proj.tech %}
+        <text x="{{ loop.index0 * 90 }}" y="12" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">#{{ t }}</text>
+        {% endfor %}
+      </g>
+    </g>
+    {% endfor %}
+  </g>
+</svg>

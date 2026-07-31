@@ -1,0 +1,51 @@
+<div align="center">
+
+{% if assets.hero %}
+![Hero Banner]({{ assets.hero }})
+{% endif %}
+
+</div>
+
+{% if config.profile.status %}
+> **Status:** {{ config.profile.status }}  
+> **Focus:** {{ config.profile.focus }}  
+> **Location:** {{ config.profile.location }}
+{% endif %}
+
+---
+
+<div align="center">
+
+{% if assets.stats %}
+![GitHub Statistics]({{ assets.stats }})
+{% endif %}
+
+{% if assets.heatmap %}
+![Contribution Heatmap]({{ assets.heatmap }})
+{% endif %}
+
+{% if assets.languages %}
+![Language Breakdown]({{ assets.languages }})
+{% endif %}
+
+</div>
+
+---
+
+{% if assets.projects %}
+<div align="center">
+
+![Featured Projects]({{ assets.projects }})
+
+</div>
+{% endif %}
+
+---
+
+<div align="center">
+
+{% if assets.footer %}
+![Footer]({{ assets.footer }})
+{% endif %}
+
+</div>

@@ -1,0 +1,44 @@
+version: "2.0"
+
+profile:
+  name: "Vaibhav Solanki"
+  title: "Computer Science Engineering Student"
+  identity:
+    - "AI Engineer"
+    - "Competitive Programmer"
+    - "Full Stack Developer"
+    - "Open Source Contributor"
+    - "Chess Player"
+    - "Builder"
+  status: "Available for AI / Full Stack engineering roles"
+  location: "India"
+  focus: "Building Kalam & Metry AI"
+  availability: "Open to opportunities"
+
+design:
+  accent_color: "#58A6FF"
+  theme: "dark"
+  font_family: "JetBrains Mono"
+
+github:
+  username: "vaibhavsolanki1"
+  data_mode: "live"
+
+projects:
+  - name: "Metry"
+    description: "AI Wellness Platform"
+    status: "Active"
+    tech: ["Python", "AI", "FastAPI", "React"]
+  - name: "Kalam"
+    description: "Offline AI Assistant"
+    status: "In Development"
+    tech: ["Python", "LLM", "C++", "ONNX"]
+  - name: "Enigma Chess Club"
+    description: "Chess Platform & Analytics"
+    status: "Active"
+    tech: ["TypeScript", "Python", "WebSockets"]
+
+system:
+  cache_ttl: 86400
+  log_level: "INFO"
+  optimize_svg: true

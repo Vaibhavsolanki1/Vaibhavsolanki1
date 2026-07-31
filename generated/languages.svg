@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" fill="none">
+  <style>
+/* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
+}
+:root {
+  --font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  --bg-canvas: #0D1117;
+  --bg-surface: #161B22;
+  --bg-subtle: #21262D;
+  --border-muted: #30363D;
+  --text-primary: #E6EDF3;
+  --text-secondary: #8B949E;
+  --text-muted: #484F58;
+  --accent-primary: #58A6FF;
+  --accent-hover: #79C0FF;
+  --accent-active: #1F6FEB;
+  --accent-subtle: #388BFD26;
+  --contribution-0: #161B22;
+  --contribution-1: #0E4429;
+  --contribution-2: #006D32;
+  --contribution-3: #26A641;
+  --contribution-4: #39D353;
+  --status-success: #3FB950;
+  --status-warning: #D29922;
+  --status-error: #F85149;
+  --status-info: #58A6FF;
+}
+</style>
+  
+  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  
+  <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">MOST USED LANGUAGES</text>
+  <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
+
+  <!-- Donut Chart -->
+  <g transform="translate(40, 0)">
+    <path d="M 150.00 50.00 A 65.00 65.00 0 1 1 114.83 169.66 L 127.27 150.32 A 42.00 42.00 0 1 0 150.00 73.00 Z" fill="#3572A5"><title>Python: 59.1%</title></path>
+<path d="M 114.83 169.66 A 65.00 65.00 0 0 1 100.97 72.32 L 118.32 87.42 A 42.00 42.00 0 0 0 127.27 150.32 Z" fill="#f34b7d"><title>C++: 27.3%</title></path>
+<path d="M 100.97 72.32 A 65.00 65.00 0 0 1 150.00 50.00 L 150.00 73.00 A 42.00 42.00 0 0 0 118.32 87.42 Z" fill="#3178C6"><title>TypeScript: 13.6%</title></path>
+  </g>
+
+  <!-- Language Progress Bars / Legend -->
+  <g transform="translate(300, 60)">
+    <g transform="translate(0, 0)">
+      <circle cx="6" cy="6" r="5" fill="#3572A5"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">Python</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">59.1%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="141.84" height="8" rx="4" fill="#3572A5"/>
+    </g>
+    <g transform="translate(0, 24)">
+      <circle cx="6" cy="6" r="5" fill="#f34b7d"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">C++</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">27.3%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="65.52000000000001" height="8" rx="4" fill="#f34b7d"/>
+    </g>
+    <g transform="translate(0, 48)">
+      <circle cx="6" cy="6" r="5" fill="#3178C6"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">TypeScript</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">13.6%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="32.64" height="8" rx="4" fill="#3178C6"/>
+    </g>
+  </g>
+</svg>
