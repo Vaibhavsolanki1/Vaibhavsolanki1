@@ -35,7 +35,61 @@
   <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">MOST USED LANGUAGES</text>
   <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
 
-  <g transform="translate(400, 110)">
-    <text fill="var(--text-muted)" font-family="var(--font-family)" font-size="12" text-anchor="middle">Data unavailable (Authentication required)</text>
+  <!-- Donut Chart -->
+  <g transform="translate(40, 0)">
+    <path d="M 150.00 50.00 A 65.00 65.00 0 0 1 150.00 180.00 L 150.00 157.00 A 42.00 42.00 0 0 0 150.00 73.00 Z" fill="#E34C26"><title>HTML: 50.0%</title></path>
+<path d="M 150.00 180.00 A 65.00 65.00 0 0 1 86.66 129.58 L 109.07 124.42 A 42.00 42.00 0 0 0 150.00 157.00 Z" fill="#F1E05A"><title>JavaScript: 21.4%</title></path>
+<path d="M 86.66 129.58 A 65.00 65.00 0 0 1 99.14 74.52 L 117.14 88.84 A 42.00 42.00 0 0 0 109.07 124.42 Z" fill="#3178C6"><title>TypeScript: 14.3%</title></path>
+<path d="M 99.14 74.52 A 65.00 65.00 0 0 1 121.59 56.54 L 131.64 77.22 A 42.00 42.00 0 0 0 117.14 88.84 Z" fill="#563D7C"><title>CSS: 7.1%</title></path>
+<path d="M 121.59 56.54 A 65.00 65.00 0 0 1 149.59 50.00 L 149.74 73.00 A 42.00 42.00 0 0 0 131.64 77.22 Z" fill="#3572A5"><title>Python: 7.1%</title></path>
+  </g>
+
+  <!-- Language Progress Bars / Legend -->
+  <g transform="translate(300, 60)">
+    <g transform="translate(0, 0)">
+      <circle cx="6" cy="6" r="5" fill="#E34C26"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">HTML</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">50.0%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="120.0" height="8" rx="4" fill="#E34C26"/>
+    </g>
+    <g transform="translate(0, 24)">
+      <circle cx="6" cy="6" r="5" fill="#F1E05A"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">JavaScript</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">21.4%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="51.36" height="8" rx="4" fill="#F1E05A"/>
+    </g>
+    <g transform="translate(0, 48)">
+      <circle cx="6" cy="6" r="5" fill="#3178C6"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">TypeScript</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">14.3%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="34.32000000000001" height="8" rx="4" fill="#3178C6"/>
+    </g>
+    <g transform="translate(0, 72)">
+      <circle cx="6" cy="6" r="5" fill="#563D7C"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">CSS</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">7.1%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="17.04" height="8" rx="4" fill="#563D7C"/>
+    </g>
+    <g transform="translate(0, 96)">
+      <circle cx="6" cy="6" r="5" fill="#3572A5"/>
+      <text x="20" y="10" fill="var(--text-primary)" font-family="var(--font-family)" font-size="12" font-weight="500">Python</text>
+      <text x="140" y="10" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="12">7.1%</text>
+
+      <!-- Progress bar track -->
+      <rect x="200" y="2" width="240" height="8" rx="4" fill="var(--bg-subtle)"/>
+      <rect x="200" y="2" width="17.04" height="8" rx="4" fill="#3572A5"/>
+    </g>
   </g>
 </svg>

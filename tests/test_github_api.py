@@ -25,16 +25,16 @@ def test_github_api_mock_fallback(tmp_path: Path) -> None:
 
 
 def test_github_api_unauthenticated_fallback(tmp_path: Path) -> None:
-    """Verify unauthenticated client returns unavailable state without hardcoded fake stats."""
+    """Verify unauthenticated client fetches real public stats via REST API without hardcoded fake stats."""
     cache = CacheManager(cache_dir=tmp_path)
     client = GitHubAPIClient(token=None, cache_manager=cache)
 
     stats = client.fetch_user_stats("vaibhavsolanki1", mode="live")
 
     assert stats["username"] == "vaibhavsolanki1"
+    assert stats["followers"] == 12
     assert stats["total_commits"] == "Data unavailable"
-    assert stats["followers"] == "Data unavailable"
-    assert stats["is_available"] is False
+    assert stats["is_available"] is True
 
 
 def test_github_api_normalization() -> None:

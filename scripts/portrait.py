@@ -31,7 +31,7 @@ def render_ascii_portrait(
 
     lines = path.read_text(encoding="utf-8").splitlines()
     svg_lines: list[str] = [
-        f'<g class="ascii-portrait" font-family="var(--font-family)" font-size="{font_size}" font-weight="700">'
+        f'<g class="ascii-portrait" font-family="\'JetBrains Mono\', \'Fira Code\', \'Consolas\', \'Courier New\', monospace" font-size="{font_size}" font-weight="700" letter-spacing="0.5px">'
     ]
 
     current_y = y

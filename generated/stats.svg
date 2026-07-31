@@ -61,14 +61,14 @@
     <g transform="translate(462, 0)">
       <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">STARS EARNED</text>
-      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">Data unavailable</text>
+      <text x="16" y="66" fill="var(--status-warning)" font-family="var(--font-family)" font-size="24" font-weight="700">12</text>
     </g>
 
     <!-- Followers -->
     <g transform="translate(616, 0)">
       <rect width="136" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
       <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">FOLLOWERS</text>
-      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">Data unavailable</text>
+      <text x="16" y="66" fill="var(--status-success)" font-family="var(--font-family)" font-size="24" font-weight="700">12</text>
     </g>
   </g>
 </svg>
