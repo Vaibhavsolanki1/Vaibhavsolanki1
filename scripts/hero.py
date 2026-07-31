@@ -9,7 +9,7 @@ from pathlib import Path
 from scripts.animation import create_pulse_animation
 from scripts.config_loader import ProfileConfig
 from scripts.logger import get_logger
-from scripts.portrait import render_ascii_portrait
+from scripts.portrait import render_ascii_portrait, render_vector_name
 from scripts.svg_engine import SVGEngine
 
 logger = get_logger("HeroGenerator")
@@ -18,14 +18,18 @@ logger = get_logger("HeroGenerator")
 def generate_hero(
     config: ProfileConfig,
     portrait_path: Path | str = "assets/data/portrait.txt",
+    name_svg_path: Path | str = "assets/data/name.svg",
     output_dir: Path | str = "generated",
 ) -> str:
-    """Generate animated Hero section SVG string and write asset file to disk."""
+    """Generate animated Hero section SVG string using assets/data/name.svg and write asset file to disk."""
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     engine = SVGEngine(templates_dir="templates/svg")
 
+    vector_name = render_vector_name(
+        name_svg_path=name_svg_path, x=24.0, y=56.0, scale=1.15
+    )
     ascii_art = render_ascii_portrait(
         portrait_path=portrait_path,
         x=24.0,
@@ -44,6 +48,7 @@ def generate_hero(
         "location": config.profile.location,
         "focus": config.profile.focus,
         "availability": config.profile.availability,
+        "vector_name": vector_name,
         "ascii_portrait": ascii_art,
         "pulse_anim": pulse_anim,
     }

@@ -1,14 +1,48 @@
 """
-GitHub Profile 2.0 - ASCII Portrait Parser
+GitHub Profile 2.0 - Vector Name & ASCII Portrait Renderer
 
-Transforms ASCII art text files into formatted SVG <text> element arrays.
+Loads vector name SVG (assets/data/name.svg) or ASCII art text files
+and formats them into SVG element groups for hero section rendering.
 """
 
+import re
 from pathlib import Path
 
 from scripts.utils import escape_xml
 
 DEFAULT_PORTRAIT_PATH = Path("assets/data/portrait.txt")
+DEFAULT_NAME_SVG_PATH = Path("assets/data/name.svg")
+
+
+def render_vector_name(
+    name_svg_path: Path | str = DEFAULT_NAME_SVG_PATH,
+    x: float = 24.0,
+    y: float = 52.0,
+    scale: float = 1.1,
+    fill_color: str = "var(--accent-primary)",
+) -> str:
+    """Read assets/data/name.svg vector file and return SVG <g> group for VAIBHAV."""
+    path = Path(name_svg_path)
+    if not path.exists():
+        return (
+            f'<text x="{x}" y="{y}" fill="{fill_color}" '
+            f'font-family="var(--font-family)" font-size="24" font-weight="700">VAIBHAV</text>'
+        )
+
+    content = path.read_text(encoding="utf-8")
+    match = re.search(r'd="([^"]+)"', content)
+    if not match:
+        return f'<text x="{x}" y="{y}" fill="{fill_color}">VAIBHAV</text>'
+
+    path_d = match.group(1)
+
+    return (
+        f'<g class="vector-name" transform="translate({x}, {y}) scale({scale})" fill="{fill_color}">\n'
+        f'  <g transform="translate(0, -9.47)">\n'
+        f'    <path d="{path_d}"/>\n'
+        f'  </g>\n'
+        f'</g>'
+    )
 
 
 def render_ascii_portrait(
@@ -23,7 +57,6 @@ def render_ascii_portrait(
     path = Path(portrait_path)
 
     if not path.exists():
-        # Fallback text banner if file is missing
         return (
             f'<text x="{x}" y="{y}" fill="{fill_color}" '
             f'font-family="var(--font-family)" font-size="{font_size}">VAIBHAV SOLANKI</text>'

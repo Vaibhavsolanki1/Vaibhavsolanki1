@@ -15,9 +15,10 @@
   <!-- Horizontal Separator -->
   <line x1="0" y1="36" x2="100%" y2="36" stroke="var(--border-muted)" stroke-width="1"/>
   
-  <!-- ASCII Portrait -->
-  <g transform="translate(0, 10)">
-    {{ ascii_portrait | safe }}
+  <!-- Vector Name Artwork (assets/data/name.svg) -->
+  <g transform="translate(0, 20)">
+    {{ vector_name | safe }}
+    <text x="24" y="112" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11" font-weight="700">[ AI ENGINEER | FULL STACK | ICPC ]</text>
   </g>
   
   <!-- Status & Profile Info Block -->
