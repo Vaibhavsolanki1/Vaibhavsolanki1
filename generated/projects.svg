@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" fill="none"><style>
-/* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
+/* Font file assets/fonts/JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
 @font-face {
   font-family: 'JetBrains Mono';
   src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
