@@ -1,8 +1,8 @@
 """
-GitHub Profile 2.0 - Main Build Pipeline Orchestrator
+GitHub Profile 2.0 - Hybrid Build Pipeline Orchestrator
 
-CLI entrypoint for running SVG section generators, verifying asset digests,
-and rendering the final README.md profile page.
+CLI entrypoint for running generated SVG section builders (Hero, Projects),
+verifying asset digests, and rendering the final hybrid README.md profile page.
 """
 
 import argparse
@@ -16,12 +16,10 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.config_loader import ProfileConfig, load_config
-from scripts.github_api import GitHubAPIClient
 from scripts.hero import generate_hero
 from scripts.logger import get_logger
 from scripts.projects import generate_projects
 from scripts.readme_builder import READMEBuilder
-from scripts.stats import generate_analytics
 from scripts.svg_optimizer import optimize_svg
 
 logger = get_logger("BuildPipeline")
@@ -57,8 +55,8 @@ def write_asset_if_changed(
 
 
 def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
-    """Execute complete profile build pipeline."""
-    logger.info("Initializing GitHub Profile 2.0 build pipeline...")
+    """Execute hybrid profile build pipeline."""
+    logger.info("Initializing GitHub Profile 2.0 Hybrid build pipeline...")
 
     config: ProfileConfig = load_config(config_path)
     output_dir = Path(config.system.output_dir)
@@ -66,7 +64,7 @@ def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
 
     asset_paths: dict[str, str] = {}
 
-    # 1. Render Animated Hero SVG Section
+    # 1. Render Animated Hero SVG Section (Engine Generated)
     hero_svg = generate_hero(
         config, portrait_path="assets/data/portrait.txt", output_dir=output_dir
     )
@@ -74,20 +72,13 @@ def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
     write_asset_if_changed(hero_file, hero_svg, force=force)
     asset_paths["hero"] = f"{config.system.output_dir}/hero.svg"
 
-    # 2. Render Analytics SVG Sections
-    github_client = GitHubAPIClient()
-    analytics_assets = generate_analytics(
-        config, github_client=github_client, output_dir=output_dir
-    )
-    asset_paths.update(analytics_assets)
-
-    # 3. Render Projects Showcase SVG Section
+    # 2. Render Projects Showcase SVG Section (Engine Generated)
     projects_svg = generate_projects(config, output_dir=output_dir)
     projects_file = output_dir / "projects.svg"
     write_asset_if_changed(projects_file, projects_svg, force=force)
     asset_paths["projects"] = f"{config.system.output_dir}/projects.svg"
 
-    # Assemble README.md
+    # 3. Assemble Hybrid README.md (Combining Engine SVGs + Live Widgets + Markdown)
     readme_builder = READMEBuilder(templates_dir="templates")
     context = {
         "config": config,
@@ -96,13 +87,13 @@ def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
     markdown_content = readme_builder.build(context)
     readme_builder.save(markdown_content, output_path="README.md")
 
-    logger.info("Pipeline build completed successfully.")
+    logger.info("Hybrid pipeline build completed successfully.")
     return True
 
 
 def main() -> int:
     """CLI entrypoint."""
-    parser = argparse.ArgumentParser(description="GitHub Profile 2.0 Build Orchestrator")
+    parser = argparse.ArgumentParser(description="GitHub Profile 2.0 Hybrid Build Orchestrator")
     parser.add_argument("--config", default="config.yml", help="Path to config.yml")
     parser.add_argument("--force", action="store_true", help="Force rewrite all assets")
 

@@ -16,7 +16,10 @@ def test_readme_builder_render() -> None:
                 "status": "Testing status",
                 "focus": "Testing focus",
                 "location": "India",
-            }
+            },
+            "github": {
+                "username": "vaibhavsolanki1",
+            },
         },
         "assets": {
             "hero": "generated/hero.svg",

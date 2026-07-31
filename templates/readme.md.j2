@@ -6,33 +6,43 @@
 
 </div>
 
+<br />
+
+## 👨‍💻 About Me
+
 {% if config.profile.status %}
-> **Status:** {{ config.profile.status }}  
-> **Focus:** {{ config.profile.focus }}  
-> **Location:** {{ config.profile.location }}
+- 🔭 **Current Focus:** {{ config.profile.focus }}
+- 💼 **Status:** {{ config.profile.status }}
+- 📍 **Location:** {{ config.profile.location }}
+- ⚡ **Availability:** {{ config.profile.availability }}
 {% endif %}
 
 ---
 
+<h2 align="center">📊 Live GitHub Statistics</h2>
+
 <div align="center">
 
-{% if assets.stats %}
-![GitHub Statistics]({{ assets.stats }})
-{% endif %}
+<a href="https://github.com/{{ config.github.username }}">
+  <img src="https://github-readme-stats.vercel.app/api?username={{ config.github.username }}&show_icons=true&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3&icon_color=58A6FF" alt="GitHub Readme Stats" height="170" />
+</a>
+<a href="https://github.com/{{ config.github.username }}">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user={{ config.github.username }}&theme=dark&background=0D1117&border=30363D&stroke=58A6FF&ring=58A6FF&fire=58A6FF&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak Stats" height="170" />
+</a>
 
-{% if assets.heatmap %}
-![Contribution Heatmap]({{ assets.heatmap }})
-{% endif %}
+<br /><br />
 
-{% if assets.languages %}
-![Language Breakdown]({{ assets.languages }})
-{% endif %}
+<a href="https://github.com/{{ config.github.username }}">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ config.github.username }}&layout=compact&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3" alt="Top Languages" height="165" />
+</a>
 
 </div>
 
 ---
 
 {% if assets.projects %}
+<h2 align="center">🚀 Featured Projects</h2>
+
 <div align="center">
 
 ![Featured Projects]({{ assets.projects }})
@@ -42,10 +52,36 @@
 
 ---
 
+## 🛠️ Tech Stack & Skills
+
+- **Languages:** Python, TypeScript, JavaScript, C++, HTML5, CSS3
+- **Frameworks & AI:** FastAPI, React, PyTorch, ONNX, LLM Tools
+- **Database & DevOps:** PostgreSQL, WebSockets, Git, GitHub Actions
+
+---
+
+## 🗺️ Engineering Timeline & ICPC Journey
+
+- 🎓 **Computer Science Engineering Student** — Deepening expertise in Algorithms & Competitive Programming.
+- 🤖 **Builder & AI Researcher** — Developing *Kalam* (Offline AI Assistant) & *Metry* (AI Wellness Platform).
+- 🏆 **ICPC Competitor** — Active ICPC team journeys and algorithmic problem solving.
+
+---
+
+## 📫 Connect & Contact
+
+- **Email:** [contact@vaibhavsolanki.dev](mailto:contact@vaibhavsolanki.dev)
+- **GitHub:** [@{{ config.github.username }}](https://github.com/{{ config.github.username }})
+- **Portfolio:** [vaibhavsolanki.dev](https://vaibhavsolanki.dev)
+
+---
+
 <div align="center">
 
 {% if assets.footer %}
 ![Footer]({{ assets.footer }})
+{% else %}
+<sub>Built with ⚡ by <b>GitHub Profile 2.0 Hybrid Engine</b></sub>
 {% endif %}
 
 </div>

@@ -1,31 +1,23 @@
 # GitHub Profile 2.0 — Development Roadmap
 
-> **Current Release:** v1.0.0 (Production Engine Baseline)
+> **Current Release:** v1.1.0 (Hybrid Architecture Baseline)
 
 ```
-[ v1.0.0: Core Engine ] ──> [ v1.1.0: Content Modules ] ──> [ v2.0.0: Live Integrations ]
+[ v1.0.0: Core Engine ] ──> [ v1.1.0: Hybrid Architecture ] ──> [ v2.0.0: Live Integrations ]
 ```
 
 ---
 
-## Version 1.0.0 — Production Core Engine (Current)
-- [x] Zero-dependency Python build pipeline and Jinja2 SVG engine.
-- [x] Animated terminal hero section with ASCII portrait parser.
-- [x] GitHub GraphQL API integration with contribution heatmap and language donut chart.
-- [x] Featured projects card showcase.
-- [x] Automated SVG minification and SHA-256 incremental asset update checker.
-- [x] GitHub Actions daily scheduled runner and PR QA checks.
+## Version 1.1.0 — Hybrid Architecture (Current)
+- [x] Hybrid Architecture combining local Python SVG personal branding with real-time live GitHub statistics widgets.
+- [x] Animated terminal hero section with exact ASCII name banner for **VAIBHAV**.
+- [x] Integration of trusted live widgets for GitHub Stats, Streak, and Top Languages (`theme=dark&bg_color=0D1117`).
+- [x] Deprecation of legacy static statistics generator into `deprecated/stats.py`.
+- [x] Streamlined build pipeline executing in <0.1 seconds.
 
 ---
 
-## Version 1.1.0 — Modular Content Expansion (Target: Q3 2026)
-- [ ] Dedicated standalone generators for Timeline, Tech Stack Grid, Competitive Programming, and Contact cards.
-- [ ] Customizable theme color palette presets via `config.yml` (Violet, Teal, Emerald, Amber).
-- [ ] Automated blog/articles RSS feed parser.
-
----
-
-## Version 2.0.0 — Live Ecosystem Integrations (Target: Q4 2026)
+## Version 2.0.0 — Ecosystem Integrations (Target: Q4 2026)
 - [ ] WakaTime coding activity widget integration.
 - [ ] Spotify currently playing track badge.
 - [ ] Chess.com / Lichess rating tracker integration.
