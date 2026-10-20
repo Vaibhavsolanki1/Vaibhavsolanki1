@@ -52,9 +52,9 @@
       <stop offset="100%" stop-color="#E94560"/>
     </linearGradient>
 
-    <!-- Rank Starburst Glow -->
+    <!-- Rank Starburst Glow (Subtle & Softened) -->
     <filter id="rankGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -62,7 +62,7 @@
     </filter>
 
     <pattern id="powerHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.1"/>
+      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.08"/>
     </pattern>
   </defs>
 
@@ -80,84 +80,94 @@
   <!-- Power Bars Column (Left / Center) -->
   <g transform="translate(24, 60)">
     <g transform="translate(0, 0)">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">CODING POWER // コーディング力</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">450 COMMITS</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">CODING POWER</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">450 COMMITS</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="302.4" height="10" rx="2" fill="url(#powerBarGrad)">
-        <animate attributeName="width" from="0" to="302.4" dur="1.2s" begin="0.0s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      <rect x="266" y="5" width="241.2" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="241.2" dur="1.2s" begin="0.0s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
     </g>
     <g transform="translate(0, 34)">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">COLLABORATION JUTSU // 協力の術</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">35 PRs</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">COLLABORATION JUTSU</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">35 PRs</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="292.3" height="10" rx="2" fill="url(#powerBarGrad)">
-        <animate attributeName="width" from="0" to="292.3" dur="1.2s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      <rect x="266" y="5" width="233.2" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="233.2" dur="1.2s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">87%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">87%</text>
     </g>
     <g transform="translate(0, 68)">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">STAR ENERGY // 星のオーラ</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">48 STARS</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">STAR ENERGY</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">48 STARS</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="309.1" height="10" rx="2" fill="url(#powerBarGrad)">
-        <animate attributeName="width" from="0" to="309.1" dur="1.2s" begin="0.3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      <rect x="266" y="5" width="246.6" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="246.6" dur="1.2s" begin="0.3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">92%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">92%</text>
     </g>
     <g transform="translate(0, 102)">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">ALLY COUNT // 仲間の数</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">18 ALLIES</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">ALLY COUNT</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">18 ALLIES</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="302.4" height="10" rx="2" fill="url(#powerBarGrad)">
-        <animate attributeName="width" from="0" to="302.4" dur="1.2s" begin="0.44999999999999996s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      <rect x="266" y="5" width="241.2" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="241.2" dur="1.2s" begin="0.44999999999999996s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
     </g>
     <g transform="translate(0, 136)">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">QUEST STREAK // 連勝記録</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">28 DAYS</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">QUEST STREAK</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">28 DAYS</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="312.5" height="10" rx="2" fill="url(#powerBarGrad)">
-        <animate attributeName="width" from="0" to="312.5" dur="1.2s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      <rect x="266" y="5" width="249.2" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="249.2" dur="1.2s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">93%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">93%</text>
     </g>
   </g>
 
@@ -172,14 +182,15 @@
 
     <!-- Starburst Rank Centerpiece -->
     <g transform="translate(68, 86)">
-      <!-- Pulsing Aura Halo -->
-      <circle cx="0" cy="0" r="28" fill="var(--accent-primary)" fill-opacity="0.15" filter="url(#rankGlow)">
-        <animate attributeName="r" dur="2s" repeatCount="indefinite" values="24;32;24"/>
+      <!-- Softened Pulsing Aura Halo (Gentle glow, not blinding) -->
+      <circle cx="0" cy="0" r="26" fill="var(--accent-primary)" fill-opacity="0.08" filter="url(#rankGlow)">
+        <animate attributeName="r" dur="2.5s" repeatCount="indefinite" values="23;27;23"/>
+        <animate attributeName="opacity" dur="2.5s" repeatCount="indefinite" values="0.4;0.8;0.4"/>
       </circle>
       <circle cx="0" cy="0" r="22" fill="var(--bg-subtle)" stroke="var(--accent-primary)" stroke-width="2"/>
       
-      <!-- Rank Letter -->
-      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle" filter="url(#rankGlow)">S</text>
+      <!-- Rank Letter (Crisp, sharp, no blur haze) -->
+      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle">S</text>
     </g>
 
     <!-- Rank Subtext -->

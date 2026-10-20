@@ -26,31 +26,31 @@ def calculate_power_stats(raw_stats: dict[str, Any] | None = None) -> list[dict[
     streak = int(stats.get("streak", 28) if isinstance(stats.get("streak"), int | float) else 28)
 
     # Normalized scale definitions
-    max_track_width = 336.0
+    max_track_width = 268.0
 
     items: list[dict[str, Any]] = [
         {
-            "label": "CODING POWER // コーディング力",
+            "label": "CODING POWER",
             "value": f"{total_commits:,} COMMITS",
             "percentage": min(98, max(50, int((total_commits / 500) * 100))),
         },
         {
-            "label": "COLLABORATION JUTSU // 協力の術",
+            "label": "COLLABORATION JUTSU",
             "value": f"{total_prs:,} PRs",
             "percentage": min(95, max(40, int((total_prs / 40) * 100))),
         },
         {
-            "label": "STAR ENERGY // 星のオーラ",
+            "label": "STAR ENERGY",
             "value": f"{total_stars:,} STARS",
             "percentage": min(92, max(35, int((total_stars / 50) * 100))),
         },
         {
-            "label": "ALLY COUNT // 仲間の数",
+            "label": "ALLY COUNT",
             "value": f"{followers:,} ALLIES",
             "percentage": min(90, max(30, int((followers / 20) * 100))),
         },
         {
-            "label": "QUEST STREAK // 連勝記録",
+            "label": "QUEST STREAK",
             "value": f"{streak} DAYS",
             "percentage": min(96, max(45, int((streak / 30) * 100))),
         },

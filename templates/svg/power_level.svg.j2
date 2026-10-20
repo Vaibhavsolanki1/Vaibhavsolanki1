@@ -8,9 +8,9 @@
       <stop offset="100%" stop-color="#E94560"/>
     </linearGradient>
 
-    <!-- Rank Starburst Glow -->
+    <!-- Rank Starburst Glow (Subtle & Softened) -->
     <filter id="rankGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -18,7 +18,7 @@
     </filter>
 
     <pattern id="powerHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.1"/>
+      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.08"/>
     </pattern>
   </defs>
 
@@ -38,20 +38,22 @@
     {% for stat in power_stats %}
     {% set y_pos = loop.index0 * 34 %}
     <g transform="translate(0, {{ y_pos }})">
-      <!-- Label -->
-      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">{{ stat.label }}</text>
-      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">{{ stat.value }}</text>
+      <!-- Label (0 to ~135px) -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">{{ stat.label }}</text>
+      
+      <!-- Value (Right-aligned at x=250, safely clear of label) -->
+      <text x="250" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="11" font-weight="700" text-anchor="end">{{ stat.value }}</text>
 
-      <!-- Bar Background Track -->
-      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+      <!-- Bar Background Track (x=265 to 535) -->
+      <rect x="265" y="4" width="270" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
 
       <!-- Animated Bar Fill -->
-      <rect x="226" y="5" width="{{ stat.bar_width }}" height="10" rx="2" fill="url(#powerBarGrad)">
+      <rect x="266" y="5" width="{{ stat.bar_width }}" height="10" rx="2" fill="url(#powerBarGrad)">
         <animate attributeName="width" from="0" to="{{ stat.bar_width }}" dur="1.2s" begin="{{ loop.index0 * 0.15 }}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
       </rect>
 
-      <!-- Percentage Tag -->
-      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">{{ stat.percentage }}%</text>
+      <!-- Percentage Tag (at x=545) -->
+      <text x="545" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">{{ stat.percentage }}%</text>
     </g>
     {% endfor %}
   </g>
@@ -67,14 +69,15 @@
 
     <!-- Starburst Rank Centerpiece -->
     <g transform="translate(68, 86)">
-      <!-- Pulsing Aura Halo -->
-      <circle cx="0" cy="0" r="28" fill="var(--accent-primary)" fill-opacity="0.15" filter="url(#rankGlow)">
-        <animate attributeName="r" dur="2s" repeatCount="indefinite" values="24;32;24"/>
+      <!-- Softened Pulsing Aura Halo (Gentle glow, not blinding) -->
+      <circle cx="0" cy="0" r="26" fill="var(--accent-primary)" fill-opacity="0.08" filter="url(#rankGlow)">
+        <animate attributeName="r" dur="2.5s" repeatCount="indefinite" values="23;27;23"/>
+        <animate attributeName="opacity" dur="2.5s" repeatCount="indefinite" values="0.4;0.8;0.4"/>
       </circle>
       <circle cx="0" cy="0" r="22" fill="var(--bg-subtle)" stroke="var(--accent-primary)" stroke-width="2"/>
       
-      <!-- Rank Letter -->
-      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle" filter="url(#rankGlow)">{{ rank | default("S") }}</text>
+      <!-- Rank Letter (Crisp, sharp, no blur haze) -->
+      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle">{{ rank | default("S") }}</text>
     </g>
 
     <!-- Rank Subtext -->
