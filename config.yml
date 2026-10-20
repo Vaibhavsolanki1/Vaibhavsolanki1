@@ -5,38 +5,55 @@ profile:
   title: "Computer Science Engineering Student"
   identity:
     - "AI Engineer"
-    - "Competitive Programmer"
     - "Full Stack Developer"
     - "Open Source Contributor"
-    - "Chess Player"
     - "Builder"
   status: "Available for AI / Full Stack engineering roles"
   location: "India"
-  focus: "Building Kalam & Metry AI"
+  focus: "Building Oasis & Maitri"
   availability: "Open to opportunities"
 
 design:
-  accent_color: "#58A6FF"
-  theme: "dark"
-  font_family: "JetBrains Mono"
+  accent_color: "#E94560"
+  theme: "manga"
+  font_family: "Bangers"
 
 github:
   username: "vaibhavsolanki1"
   data_mode: "live"
 
 projects:
-  - name: "Metry"
+  - name: "Maitri"
     description: "AI Wellness Platform"
     status: "Active"
     tech: ["Python", "AI", "FastAPI", "React"]
-  - name: "Kalam"
-    description: "Offline AI Assistant"
-    status: "In Development"
-    tech: ["Python", "LLM", "C++", "ONNX"]
-  - name: "Enigma Chess Club"
-    description: "Chess Platform & Analytics"
+  - name: "Oasis"
+    description: "Generative AI Creator Platform"
     status: "Active"
-    tech: ["TypeScript", "Python", "WebSockets"]
+    tech: ["Python", "AI", "GenAI", "React"]
+  - name: "Mantri"
+    description: "AI Workflow Automation"
+    status: "In Development"
+    tech: ["Python", "AI", "Automation"]
+
+manga:
+  enabled: true
+  protagonist_name: "The Code Architect"
+  chapter_title: "Chapter 1: The Rising Developer"
+  theme_variant: "shonen"
+  story_arcs:
+    - title: "Origin Arc"
+      subtitle: "The Beginning"
+      icon: "🎓"
+      description: "CS Engineering Student — Algorithms & AI"
+    - title: "Rising Power Arc"
+      subtitle: "Building Legends"
+      icon: "🤖"
+      description: "Builder & AI Engineer — Oasis & Maitri"
+    - title: "Creator Arc"
+      subtitle: "The Platform Architect"
+      icon: "🔮"
+      description: "Generative AI & Workflow Automation"
 
 system:
   cache_ttl: 86400

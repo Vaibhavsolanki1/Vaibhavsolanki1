@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" fill="none">
+  {{ system_styles | safe }}
+
+  <defs>
+    <pattern id="arcHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <!-- Manga Panel Outer Border & Background -->
+  <rect width="100%" height="100%" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="2"/>
+  <rect x="4" y="4" width="792" height="232" rx="4" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  <rect x="4" y="4" width="792" height="232" fill="url(#arcHalftone)"/>
+
+  <!-- Panel Header -->
+  <g transform="translate(24, 28)">
+    <text x="0" y="0" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="20" font-weight="900" letter-spacing="1.5px">📖 THE STORY SO FAR // PROTAGONIST CHRONICLES</text>
+    <line x1="0" y1="14" x2="752" y2="14" stroke="var(--border-muted)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Story Arcs Sequence -->
+  <g transform="translate(24, 60)">
+    {% for arc in story_arcs %}
+    {% set x_pos = loop.index0 * 256 %}
+    <g transform="translate({{ x_pos }}, 0)">
+      <!-- Arc Panel Box -->
+      <rect width="240" height="120" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/>
+
+      <!-- Arc Header Badge -->
+      <rect x="12" y="10" width="90" height="20" rx="3" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/>
+      <text x="57" y="24" fill="var(--accent-primary)" font-family="var(--font-manga-body)" font-size="10" font-weight="700" text-anchor="middle">ARC #0{{ loop.index }}</text>
+
+      <!-- Icon & Arc Title -->
+      <text x="110" y="25" font-size="14">{{ arc.icon }}</text>
+      <text x="130" y="25" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="0.5px">{{ arc.title }}</text>
+
+      <!-- Subtitle -->
+      <text x="14" y="52" fill="var(--accent-hover)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">"{{ arc.subtitle }}"</text>
+
+      <!-- Description -->
+      <text x="14" y="74" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="10">
+        {{ arc.description }}
+      </text>
+
+      <!-- Connecting Arrow to Next Arc -->
+      {% if not loop.last %}
+      <g transform="translate(240, 60)">
+        <line x1="0" y1="0" x2="16" y2="0" stroke="var(--accent-primary)" stroke-width="2"/>
+        <polygon points="12,-4 16,0 12,4" fill="var(--accent-primary)"/>
+      </g>
+      {% endif %}
+    </g>
+    {% endfor %}
+  </g>
+
+  <!-- To Be Continued Banner -->
+  <g transform="translate(24, 196)">
+    <line x1="0" y1="12" x2="520" y2="12" stroke="var(--border-muted)" stroke-dasharray="4 4" stroke-width="1"/>
+    <text x="540" y="16" fill="var(--accent-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="2px">TO BE CONTINUED... // 続く</text>
+    <line x1="680" y1="12" x2="752" y2="12" stroke="var(--border-muted)" stroke-dasharray="4 4" stroke-width="1"/>
+  </g>
+</svg>

@@ -6,37 +6,46 @@
 
 <br />
 
-## 👨‍💻 About Me
+## ⚔️ Character Profile // About Me
 
-- 🔭 **Current Focus:** Building Kalam & Metry AI
+- 🗡️ **Protagonist Epithet:** The Code Architect
+- 🔭 **Current Focus:** Building Oasis & Maitri
 - 💼 **Status:** Available for AI / Full Stack engineering roles
-- 📍 **Location:** India
-- ⚡ **Availability:** Open to opportunities
+- 📍 **Realm / Location:** India
+- ⚡ **Guild Availability:** Open to opportunities
 
 ---
 
-<h2 align="center">📊 Live GitHub Statistics</h2>
+<h2 align="center">⚡ Power Level Assessment &amp; Live Statistics</h2>
+
+<div align="center">
+
+![Power Level Assessment](generated/power_level.svg)
+
+</div>
+
+<br />
 
 <div align="center">
 
 <a href="https://github.com/vaibhavsolanki1">
-  <img src="https://github-readme-stats.vercel.app/api?username=vaibhavsolanki1&show_icons=true&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3&icon_color=58A6FF" alt="GitHub Readme Stats" height="170" />
+  <img src="https://github-readme-stats.vercel.app/api?username=vaibhavsolanki1&show_icons=true&theme=dark&bg_color=0A0A0F&border_color=E94560&title_color=E94560&text_color=EAEAEA&icon_color=E94560" alt="GitHub Readme Stats" height="170" />
 </a>
 <a href="https://github.com/vaibhavsolanki1">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=vaibhavsolanki1&theme=dark&background=0D1117&border=30363D&stroke=58A6FF&ring=58A6FF&fire=58A6FF&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak Stats" height="170" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=vaibhavsolanki1&theme=dark&background=0A0A0F&border=E94560&stroke=E94560&ring=E94560&fire=E94560&currStreakNum=EAEAEA&sideNums=EAEAEA&dates=9D9DA6" alt="GitHub Streak Stats" height="170" />
 </a>
 
 <br /><br />
 
 <a href="https://github.com/vaibhavsolanki1">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vaibhavsolanki1&layout=compact&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3" alt="Top Languages" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vaibhavsolanki1&layout=compact&theme=dark&bg_color=0A0A0F&border_color=E94560&title_color=E94560&text_color=EAEAEA" alt="Top Languages" height="165" />
 </a>
 
 </div>
 
 ---
 
-<h2 align="center">🚀 Featured Projects</h2>
+<h2 align="center">📜 Active Quests // Featured Projects</h2>
 
 <div align="center">
 
@@ -46,32 +55,34 @@
 
 ---
 
-## 🛠️ Tech Stack & Skills
+## 🔮 Arsenal &amp; Abilities // Tech Stack &amp; Skills
 
-- **Languages:** Python, TypeScript, JavaScript, C++, HTML5, CSS3
-- **Frameworks & AI:** FastAPI, React, PyTorch, ONNX, LLM Tools
-- **Database & DevOps:** PostgreSQL, WebSockets, Git, GitHub Actions
-
----
-
-## 🗺️ Engineering Timeline & ICPC Journey
-
-- 🎓 **Computer Science Engineering Student** — Deepening expertise in Algorithms & Competitive Programming.
-- 🤖 **Builder & AI Researcher** — Developing *Kalam* (Offline AI Assistant) & *Metry* (AI Wellness Platform).
-- 🏆 **ICPC Competitor** — Active ICPC team journeys and algorithmic problem solving.
+- ⚔️ **Core Weapons (Languages):** Python, TypeScript, JavaScript, C++, HTML5, CSS3
+- 🧬 **AI &amp; Framework Jutsus:** FastAPI, React, PyTorch, ONNX, Generative AI Studio, LLM Orchestration
+- 🛡️ **DevOps &amp; Infrastructure:** PostgreSQL, WebSockets, Git, GitHub Actions, Docker
 
 ---
 
-## 📫 Connect & Contact
+<h2 align="center">📖 Story Arc // Engineering Timeline</h2>
 
-- **Email:** [contact@vaibhavsolanki.dev](mailto:contact@vaibhavsolanki.dev)
-- **GitHub:** [@vaibhavsolanki1](https://github.com/vaibhavsolanki1)
-- **Portfolio:** [vaibhavsolanki.dev](https://vaibhavsolanki.dev)
+<div align="center">
+
+![Story Arc Timeline](generated/story_arc.svg)
+
+</div>
+
+---
+
+## 🏯 Guild Contact // Connect &amp; Contact
+
+- 📬 **Raven / Email:** [contact@vaibhavsolanki.dev](mailto:contact@vaibhavsolanki.dev)
+- 📜 **Adventurer's Code (GitHub):** [@vaibhavsolanki1](https://github.com/vaibhavsolanki1)
+- 🌐 **Protagonist Sanctum (Portfolio):** [vaibhavsolanki.dev](https://vaibhavsolanki.dev)
 
 ---
 
 <div align="center">
 
-<sub>Built with ⚡ by <b>GitHub Profile 2.0 Hybrid Engine</b></sub>
+<sub>Crafted with ⚔️ by <b>Manga Protagonist Engine 2.0</b> // 続く</sub>
 
 </div>

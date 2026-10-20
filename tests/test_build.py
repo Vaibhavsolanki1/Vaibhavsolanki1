@@ -40,4 +40,7 @@ def test_run_pipeline() -> None:
     success = run_pipeline(config_path="config.yml", force=True)
     assert success is True
     assert Path("generated/hero.svg").exists()
+    assert Path("generated/projects.svg").exists()
+    assert Path("generated/power_level.svg").exists()
+    assert Path("generated/story_arc.svg").exists()
     assert Path("README.md").exists()

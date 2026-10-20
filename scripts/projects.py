@@ -1,7 +1,8 @@
 """
 GitHub Profile 2.0 - Project Showcase Generator
 
-Generates project cards section SVG (generated/projects.svg) from config.yml project items.
+Generates project cards section SVG (generated/projects.svg) from config.yml project items
+styled as an anime quest board.
 """
 
 from pathlib import Path
@@ -23,17 +24,27 @@ def generate_projects(
 
     engine = SVGEngine(templates_dir="templates/svg")
 
-    projects_list = [p.model_dump() for p in config.projects]
+    projects_list = []
+    for p in config.projects:
+        item = p.model_dump()
+        # Assign quest difficulty
+        if "In Development" in item.get("status", ""):
+            item["difficulty"] = "★★★★★"
+        else:
+            item["difficulty"] = "★★★★☆"
+        projects_list.append(item)
+
     count = len(projects_list) or 1
-    calculated_height = 80 + (count * 100)
+    calculated_height = 80 + (count * 105)
 
     context = {
         "width": 800,
         "height": calculated_height,
+        "theme": "manga",
         "projects": projects_list,
     }
 
-    rendered_projects_svg = engine.render("project_card.svg.j2", context)
+    rendered_projects_svg = engine.render("project_card.svg.j2", context, theme="manga")
 
     projects_file = out_dir / "projects.svg"
     projects_file.write_text(rendered_projects_svg, encoding="utf-8")

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" fill="none">
+  {{ system_styles | safe }}
+
+  <defs>
+    <!-- Power Bar Gradient -->
+    <linearGradient id="powerBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B81"/>
+      <stop offset="100%" stop-color="#E94560"/>
+    </linearGradient>
+
+    <!-- Rank Starburst Glow -->
+    <filter id="rankGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="powerHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <!-- Manga Panel Outer Border & Background -->
+  <rect width="100%" height="100%" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="2"/>
+  <rect x="4" y="4" width="792" height="232" rx="4" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  <rect x="4" y="4" width="792" height="232" fill="url(#powerHalftone)"/>
+
+  <!-- Panel Header -->
+  <g transform="translate(24, 28)">
+    <text x="0" y="0" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="20" font-weight="900" letter-spacing="1.5px">⚡ POWER LEVEL ASSESSMENT // 戦闘能力測定</text>
+    <line x1="0" y1="12" x2="752" y2="12" stroke="var(--border-muted)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Power Bars Column (Left / Center) -->
+  <g transform="translate(24, 60)">
+    {% for stat in power_stats %}
+    {% set y_pos = loop.index0 * 34 %}
+    <g transform="translate(0, {{ y_pos }})">
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">{{ stat.label }}</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">{{ stat.value }}</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="{{ stat.bar_width }}" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="{{ stat.bar_width }}" dur="1.2s" begin="{{ loop.index0 * 0.15 }}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">{{ stat.percentage }}%</text>
+    </g>
+    {% endfor %}
+  </g>
+
+  <!-- Rank Badge Card (Right Side) -->
+  <g transform="translate(640, 60)">
+    <!-- Shield / Rank Plaque -->
+    <rect width="136" height="150" rx="8" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="2"/>
+    <rect x="6" y="6" width="124" height="138" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/>
+
+    <text x="68" y="30" fill="var(--text-muted)" font-family="var(--font-manga-body)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1px">PROTAGONIST</text>
+    <text x="68" y="46" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700" text-anchor="middle">ASSESSMENT</text>
+
+    <!-- Starburst Rank Centerpiece -->
+    <g transform="translate(68, 86)">
+      <!-- Pulsing Aura Halo -->
+      <circle cx="0" cy="0" r="28" fill="var(--accent-primary)" fill-opacity="0.15" filter="url(#rankGlow)">
+        <animate attributeName="r" dur="2s" repeatCount="indefinite" values="24;32;24"/>
+      </circle>
+      <circle cx="0" cy="0" r="22" fill="var(--bg-subtle)" stroke="var(--accent-primary)" stroke-width="2"/>
+      
+      <!-- Rank Letter -->
+      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle" filter="url(#rankGlow)">{{ rank | default("S") }}</text>
+    </g>
+
+    <!-- Rank Subtext -->
+    <text x="68" y="132" fill="var(--status-warning)" font-family="var(--font-manga-body)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1px">{{ rank_title | default("SPECIAL S-TIER") }}</text>
+  </g>
+</svg>

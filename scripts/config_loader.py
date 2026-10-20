@@ -47,12 +47,29 @@ class SystemConfigModel(BaseModel):
     output_dir: str = "generated"
 
 
+class StoryArcModel(BaseModel):
+    title: str
+    subtitle: str
+    icon: str
+    description: str
+
+
+class MangaConfigModel(BaseModel):
+    enabled: bool = True
+    protagonist_name: str = "The Code Architect"
+    chapter_title: str = "Chapter 1: The Rising Developer"
+    power_rank: str = "S"
+    theme_variant: str = "shonen"
+    story_arcs: list[StoryArcModel] = Field(default_factory=list)
+
+
 class ProfileConfig(BaseModel):
     version: str = "2.0"
     profile: ProfileConfigModel
     design: DesignConfigModel = Field(default_factory=DesignConfigModel)
     github: GitHubConfigModel
     projects: list[ProjectItemModel] = Field(default_factory=list)
+    manga: MangaConfigModel = Field(default_factory=MangaConfigModel)
     system: SystemConfigModel = Field(default_factory=SystemConfigModel)
 
 

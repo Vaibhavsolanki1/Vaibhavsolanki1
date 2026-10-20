@@ -40,7 +40,7 @@ graph TD
 | **1.2** | Problem Statement — Why existing GitHub profiles fail |
 | **1.3** | Solution Overview — Self-generating profile as a product |
 | **1.4** | Key Differentiators vs. third-party widget approach |
-| **1.5** | Target Audience Matrix (Recruiters, OSS Maintainers, Hackathon Judges, Developers, Founders, ICPC Teams, AI Researchers) |
+| **1.5** | Target Audience Matrix (Recruiters, OSS Maintainers, Hackathon Judges, Developers, Founders, AI Researchers) |
 | **1.6** | Success Metrics & KPIs |
 | **1.7** | Constraints & Non-Goals |
 | **1.8** | Document Conventions |

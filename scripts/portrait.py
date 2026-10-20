@@ -77,3 +77,15 @@ def render_ascii_portrait(
 
     svg_lines.append("</g>")
     return "\n".join(svg_lines)
+
+
+def render_manga_protagonist(
+    protagonist_path: Path | str = "assets/data/protagonist.svg",
+    x: float = 24.0,
+    y: float = 20.0,
+    scale: float = 0.95,
+) -> str:
+    """Render manga protagonist illustration with aura and entrance animation."""
+    from scripts.protagonist import render_protagonist_banner
+
+    return render_protagonist_banner(protagonist_path=protagonist_path, x=x, y=y, scale=scale)

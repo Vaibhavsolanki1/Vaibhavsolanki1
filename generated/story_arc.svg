@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" fill="none"><style>
+/* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
+}
+@font-face {
+  font-family: 'Bangers';
+  src: local('Bangers'), local('Impact'), local('Arial Black');
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: local('Chakra Petch'), local('Rajdhani'), local('Trebuchet MS');
+}
+:root {
+  --font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-manga-title: 'Bangers', Impact, 'Arial Black', sans-serif;
+  --font-manga-body: 'Chakra Petch', 'Rajdhani', sans-serif;
+  --bg-canvas: #0A0A0F;
+  --bg-surface: #12121A;
+  --bg-subtle: #1A1A2E;
+  --border-muted: #E94560;
+  --text-primary: #EAEAEA;
+  --text-secondary: #9D9DA6;
+  --text-muted: #5E5E6E;
+  --accent-primary: #E94560;
+  --accent-hover: #FF6B81;
+  --accent-active: #C23152;
+  --accent-subtle: #E9456026;
+  --contribution-0: #161B22;
+  --contribution-1: #0E4429;
+  --contribution-2: #006D32;
+  --contribution-3: #26A641;
+  --contribution-4: #39D353;
+  --status-success: #3FB950;
+  --status-warning: #D29922;
+  --status-error: #F85149;
+  --status-info: #58A6FF;
+  --manga-speed-line: #E94560;
+  --manga-panel-border: #2A2A3E;
+  --manga-glow: #FFD700;
+  --manga-shadow: #0D0D1A;
+  --manga-energy: #00D4FF;
+}
+</style><defs><pattern id="arcHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.08"/></pattern></defs><rect width="100%" height="100%" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="2"/><rect x="4" y="4" width="792" height="232" rx="4" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/><rect x="4" y="4" width="792" height="232" fill="url(#arcHalftone)"/><g transform="translate(24, 28)"><text x="0" y="0" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="20" font-weight="900" letter-spacing="1.5px">📖 THE STORY SO FAR // PROTAGONIST CHRONICLES</text><line x1="0" y1="14" x2="752" y2="14" stroke="var(--border-muted)" stroke-width="1.5"/></g><g transform="translate(24, 60)"><g transform="translate(0, 0)"><rect width="240" height="120" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/><rect x="12" y="10" width="90" height="20" rx="3" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/><text x="57" y="24" fill="var(--accent-primary)" font-family="var(--font-manga-body)" font-size="10" font-weight="700" text-anchor="middle">ARC #01</text><text x="110" y="25" font-size="14">🎓</text><text x="130" y="25" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="0.5px">Origin Arc</text><text x="14" y="52" fill="var(--accent-hover)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">"The Beginning"</text><text x="14" y="74" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="10">
+        CS Engineering Student — Algorithms &amp; AI
+      </text><g transform="translate(240, 60)"><line x1="0" y1="0" x2="16" y2="0" stroke="var(--accent-primary)" stroke-width="2"/><polygon points="12,-4 16,0 12,4" fill="var(--accent-primary)"/></g></g><g transform="translate(256, 0)"><rect width="240" height="120" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/><rect x="12" y="10" width="90" height="20" rx="3" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/><text x="57" y="24" fill="var(--accent-primary)" font-family="var(--font-manga-body)" font-size="10" font-weight="700" text-anchor="middle">ARC #02</text><text x="110" y="25" font-size="14">🤖</text><text x="130" y="25" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="0.5px">Rising Power Arc</text><text x="14" y="52" fill="var(--accent-hover)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">"Building Legends"</text><text x="14" y="74" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="10">
+        Builder &amp; AI Engineer — Oasis &amp; Maitri
+      </text><g transform="translate(240, 60)"><line x1="0" y1="0" x2="16" y2="0" stroke="var(--accent-primary)" stroke-width="2"/><polygon points="12,-4 16,0 12,4" fill="var(--accent-primary)"/></g></g><g transform="translate(512, 0)"><rect width="240" height="120" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/><rect x="12" y="10" width="90" height="20" rx="3" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/><text x="57" y="24" fill="var(--accent-primary)" font-family="var(--font-manga-body)" font-size="10" font-weight="700" text-anchor="middle">ARC #03</text><text x="110" y="25" font-size="14">🔮</text><text x="130" y="25" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="0.5px">Creator Arc</text><text x="14" y="52" fill="var(--accent-hover)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">"The Platform Architect"</text><text x="14" y="74" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="10">
+        Generative AI &amp; Workflow Automation
+      </text></g></g><g transform="translate(24, 196)"><line x1="0" y1="12" x2="520" y2="12" stroke="var(--border-muted)" stroke-dasharray="4 4" stroke-width="1"/><text x="540" y="16" fill="var(--accent-primary)" font-family="var(--font-manga-title)" font-size="14" font-weight="900" letter-spacing="2px">TO BE CONTINUED... // 続く</text><line x1="680" y1="12" x2="752" y2="12" stroke="var(--border-muted)" stroke-dasharray="4 4" stroke-width="1"/></g></svg>

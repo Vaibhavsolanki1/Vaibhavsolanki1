@@ -20,4 +20,3 @@
 ## Version 2.0.0 — Ecosystem Integrations (Target: Q4 2026)
 - [ ] WakaTime coding activity widget integration.
 - [ ] Spotify currently playing track badge.
-- [ ] Chess.com / Lichess rating tracker integration.

@@ -1,7 +1,7 @@
 """
 GitHub Profile 2.0 - Hybrid Build Pipeline Orchestrator
 
-CLI entrypoint for running generated SVG section builders (Hero, Projects),
+CLI entrypoint for running generated SVG section builders (Hero, Projects, Power Level, Story Arc),
 verifying asset digests, and rendering the final hybrid README.md profile page.
 """
 
@@ -18,8 +18,10 @@ if str(PROJECT_ROOT) not in sys.path:
 from scripts.config_loader import ProfileConfig, load_config
 from scripts.hero import generate_hero
 from scripts.logger import get_logger
+from scripts.power_level import generate_power_level
 from scripts.projects import generate_projects
 from scripts.readme_builder import READMEBuilder
+from scripts.story_arc import generate_story_arc
 from scripts.svg_optimizer import optimize_svg
 
 logger = get_logger("BuildPipeline")
@@ -64,21 +66,37 @@ def run_pipeline(config_path: str = "config.yml", force: bool = False) -> bool:
 
     asset_paths: dict[str, str] = {}
 
-    # 1. Render Animated Hero SVG Section (Engine Generated)
+    # 1. Render Animated Hero SVG Section (Manga Protagonist Banner)
     hero_svg = generate_hero(
-        config, portrait_path="assets/data/portrait.txt", output_dir=output_dir
+        config,
+        portrait_path="assets/data/portrait.txt",
+        name_svg_path="assets/data/name.svg",
+        protagonist_path="assets/data/protagonist.svg",
+        output_dir=output_dir,
     )
     hero_file = output_dir / "hero.svg"
     write_asset_if_changed(hero_file, hero_svg, force=force)
     asset_paths["hero"] = f"{config.system.output_dir}/hero.svg"
 
-    # 2. Render Projects Showcase SVG Section (Engine Generated)
+    # 2. Render Projects Showcase SVG Section (Manga Quest Board)
     projects_svg = generate_projects(config, output_dir=output_dir)
     projects_file = output_dir / "projects.svg"
     write_asset_if_changed(projects_file, projects_svg, force=force)
     asset_paths["projects"] = f"{config.system.output_dir}/projects.svg"
 
-    # 3. Assemble Hybrid README.md (Combining Engine SVGs + Live Widgets + Markdown)
+    # 3. Render Power Level Assessment SVG Section (Stats Gauge)
+    power_level_svg = generate_power_level(config, output_dir=output_dir)
+    power_level_file = output_dir / "power_level.svg"
+    write_asset_if_changed(power_level_file, power_level_svg, force=force)
+    asset_paths["power_level"] = f"{config.system.output_dir}/power_level.svg"
+
+    # 4. Render Story Arc Timeline SVG Section (Journey Chronicles)
+    story_arc_svg = generate_story_arc(config, output_dir=output_dir)
+    story_arc_file = output_dir / "story_arc.svg"
+    write_asset_if_changed(story_arc_file, story_arc_svg, force=force)
+    asset_paths["story_arc"] = f"{config.system.output_dir}/story_arc.svg"
+
+    # 5. Assemble Hybrid README.md (Combining Engine SVGs + Live Widgets + Markdown)
     readme_builder = READMEBuilder(templates_dir="templates")
     context = {
         "config": config,

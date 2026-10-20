@@ -11,6 +11,7 @@ from enum import Enum
 
 class ThemeMode(Enum):
     DARK = "dark"
+    MANGA = "manga"
 
 
 @dataclass(frozen=True)
@@ -45,16 +46,47 @@ class ColorPalette:
     error: str = "#F85149"
     info: str = "#58A6FF"
 
+    # Manga Specific Tokens
+    manga_speed_line: str = "#E94560"
+    manga_panel_border: str = "#2A2A3E"
+    manga_glow: str = "#FFD700"
+    manga_shadow: str = "#0D0D1A"
+    manga_energy: str = "#00D4FF"
+
+
+MANGA_COLORS = ColorPalette(
+    bg_canvas="#0A0A0F",
+    bg_surface="#12121A",
+    bg_subtle="#1A1A2E",
+    border_muted="#E94560",
+    text_primary="#EAEAEA",
+    text_secondary="#9D9DA6",
+    text_muted="#5E5E6E",
+    accent_primary="#E94560",
+    accent_hover="#FF6B81",
+    accent_active="#C23152",
+    accent_subtle="#E9456026",
+    manga_speed_line="#E94560",
+    manga_panel_border="#2A2A3E",
+    manga_glow="#FFD700",
+    manga_shadow="#0D0D1A",
+    manga_energy="#00D4FF",
+)
+
 
 @dataclass(frozen=True)
 class Typography:
     font_family: str = "'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace"
+    font_manga_title: str = "'Bangers', Impact, 'Arial Black', sans-serif"
+    font_manga_body: str = "'Chakra Petch', 'Rajdhani', sans-serif"
     size_xs: int = 11
     size_sm: int = 12
     size_md: int = 14
     size_lg: int = 16
     size_xl: int = 20
     size_2xl: int = 24
+    size_3xl: int = 32
+    size_4xl: int = 40
 
     weight_regular: int = 400
     weight_medium: int = 500
@@ -94,11 +126,12 @@ SPACING = SpacingScale()
 ANIMATIONS = AnimationTokens()
 
 
-def get_color(name: str) -> str:
+def get_color(name: str, theme: str = "dark") -> str:
     """Retrieve a color hex string by attribute name."""
-    if not hasattr(COLORS, name):
+    palette = MANGA_COLORS if theme == "manga" else COLORS
+    if not hasattr(palette, name):
         raise AttributeError(f"Color token '{name}' does not exist in ColorPalette.")
-    return getattr(COLORS, name)  # type: ignore[no-any-return]
+    return getattr(palette, name)  # type: ignore[no-any-return]
 
 
 def get_spacing(level: int) -> int:
@@ -109,17 +142,22 @@ def get_spacing(level: int) -> int:
     return getattr(SPACING, attr_name)  # type: ignore[no-any-return]
 
 
-def to_css_variables(palette_override: dict[str, str] | None = None) -> str:
+def to_css_variables(
+    palette_override: dict[str, str] | None = None,
+    theme: str | None = None,
+) -> str:
     """Compile tokens into an SVG-compatible CSS variable block."""
-    palette = COLORS
+    palette = MANGA_COLORS if theme == "manga" else COLORS
     if palette_override:
         # Construct dynamic palette override
-        palette_dict = {**COLORS.__dict__, **palette_override}
+        palette_dict = {**palette.__dict__, **palette_override}
         palette = ColorPalette(**palette_dict)
 
     css_lines = [
         ":root {",
         f"  --font-family: {TYPOGRAPHY.font_family};",
+        f"  --font-manga-title: {TYPOGRAPHY.font_manga_title};",
+        f"  --font-manga-body: {TYPOGRAPHY.font_manga_body};",
         f"  --bg-canvas: {palette.bg_canvas};",
         f"  --bg-surface: {palette.bg_surface};",
         f"  --bg-subtle: {palette.bg_subtle};",
@@ -140,6 +178,11 @@ def to_css_variables(palette_override: dict[str, str] | None = None) -> str:
         f"  --status-warning: {palette.warning};",
         f"  --status-error: {palette.error};",
         f"  --status-info: {palette.info};",
+        f"  --manga-speed-line: {palette.manga_speed_line};",
+        f"  --manga-panel-border: {palette.manga_panel_border};",
+        f"  --manga-glow: {palette.manga_glow};",
+        f"  --manga-shadow: {palette.manga_shadow};",
+        f"  --manga-energy: {palette.manga_energy};",
         "}",
     ]
     return "\n".join(css_lines)

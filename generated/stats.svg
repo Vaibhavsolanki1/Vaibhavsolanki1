@@ -1,23 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180" width="800" height="180" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" fill="none">
   <style>
 /* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
 @font-face {
   font-family: 'JetBrains Mono';
   src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
 }
+@font-face {
+  font-family: 'Bangers';
+  src: local('Bangers'), local('Impact'), local('Arial Black');
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: local('Chakra Petch'), local('Rajdhani'), local('Trebuchet MS');
+}
 :root {
   --font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
-  --bg-canvas: #0D1117;
-  --bg-surface: #161B22;
-  --bg-subtle: #21262D;
-  --border-muted: #30363D;
-  --text-primary: #E6EDF3;
-  --text-secondary: #8B949E;
-  --text-muted: #484F58;
-  --accent-primary: #58A6FF;
-  --accent-hover: #79C0FF;
-  --accent-active: #1F6FEB;
-  --accent-subtle: #388BFD26;
+  --font-manga-title: 'Bangers', Impact, 'Arial Black', sans-serif;
+  --font-manga-body: 'Chakra Petch', 'Rajdhani', sans-serif;
+  --bg-canvas: #0A0A0F;
+  --bg-surface: #12121A;
+  --bg-subtle: #1A1A2E;
+  --border-muted: #E94560;
+  --text-primary: #EAEAEA;
+  --text-secondary: #9D9DA6;
+  --text-muted: #5E5E6E;
+  --accent-primary: #E94560;
+  --accent-hover: #FF6B81;
+  --accent-active: #C23152;
+  --accent-subtle: #E9456026;
   --contribution-0: #161B22;
   --contribution-1: #0E4429;
   --contribution-2: #006D32;
@@ -27,48 +37,152 @@
   --status-warning: #D29922;
   --status-error: #F85149;
   --status-info: #58A6FF;
+  --manga-speed-line: #E94560;
+  --manga-panel-border: #2A2A3E;
+  --manga-glow: #FFD700;
+  --manga-shadow: #0D0D1A;
+  --manga-energy: #00D4FF;
 }
 </style>
-  
-  <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
-  
-  <text x="24" y="32" fill="var(--text-primary)" font-family="var(--font-family)" font-size="16" font-weight="700">GITHUB ANALYTICS &amp; METRICS</text>
-  <line x1="24" y1="44" x2="776" y2="44" stroke="var(--border-muted)" stroke-width="1"/>
 
+  <defs>
+    <!-- Power Bar Gradient -->
+    <linearGradient id="powerBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B81"/>
+      <stop offset="100%" stop-color="#E94560"/>
+    </linearGradient>
+
+    <!-- Rank Starburst Glow -->
+    <filter id="rankGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="powerHalftone" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1" fill="#E94560" fill-opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <!-- Manga Panel Outer Border & Background -->
+  <rect width="100%" height="100%" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="2"/>
+  <rect x="4" y="4" width="792" height="232" rx="4" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+  <rect x="4" y="4" width="792" height="232" fill="url(#powerHalftone)"/>
+
+  <!-- Panel Header -->
+  <g transform="translate(24, 28)">
+    <text x="0" y="0" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="20" font-weight="900" letter-spacing="1.5px">⚡ POWER LEVEL ASSESSMENT // 戦闘能力測定</text>
+    <line x1="0" y1="12" x2="752" y2="12" stroke="var(--border-muted)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Power Bars Column (Left / Center) -->
   <g transform="translate(24, 60)">
-    <!-- Total Commits -->
     <g transform="translate(0, 0)">
-      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
-      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">TOTAL COMMITS</text>
-      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">Data unavailable</text>
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">CODING POWER // コーディング力</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">450 COMMITS</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="302.4" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="302.4" dur="1.2s" begin="0.0s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
+    </g>
+    <g transform="translate(0, 34)">
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">COLLABORATION JUTSU // 協力の術</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">35 PRs</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="292.3" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="292.3" dur="1.2s" begin="0.15s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">87%</text>
+    </g>
+    <g transform="translate(0, 68)">
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">STAR ENERGY // 星のオーラ</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">48 STARS</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="309.1" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="309.1" dur="1.2s" begin="0.3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">92%</text>
+    </g>
+    <g transform="translate(0, 102)">
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">ALLY COUNT // 仲間の数</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">18 ALLIES</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="302.4" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="302.4" dur="1.2s" begin="0.44999999999999996s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">90%</text>
+    </g>
+    <g transform="translate(0, 136)">
+      <!-- Label -->
+      <text x="0" y="14" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700">QUEST STREAK // 連勝記録</text>
+      <text x="210" y="14" fill="var(--accent-primary)" font-family="var(--font-family)" font-size="12" font-weight="700" text-anchor="end">28 DAYS</text>
+
+      <!-- Bar Background Track -->
+      <rect x="225" y="4" width="340" height="12" rx="3" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Animated Bar Fill -->
+      <rect x="226" y="5" width="312.5" height="10" rx="2" fill="url(#powerBarGrad)">
+        <animate attributeName="width" from="0" to="312.5" dur="1.2s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+      </rect>
+
+      <!-- Percentage Tag -->
+      <text x="578" y="14" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11" font-weight="700">93%</text>
+    </g>
+  </g>
+
+  <!-- Rank Badge Card (Right Side) -->
+  <g transform="translate(640, 60)">
+    <!-- Shield / Rank Plaque -->
+    <rect width="136" height="150" rx="8" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="2"/>
+    <rect x="6" y="6" width="124" height="138" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="1"/>
+
+    <text x="68" y="30" fill="var(--text-muted)" font-family="var(--font-manga-body)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1px">PROTAGONIST</text>
+    <text x="68" y="46" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700" text-anchor="middle">ASSESSMENT</text>
+
+    <!-- Starburst Rank Centerpiece -->
+    <g transform="translate(68, 86)">
+      <!-- Pulsing Aura Halo -->
+      <circle cx="0" cy="0" r="28" fill="var(--accent-primary)" fill-opacity="0.15" filter="url(#rankGlow)">
+        <animate attributeName="r" dur="2s" repeatCount="indefinite" values="24;32;24"/>
+      </circle>
+      <circle cx="0" cy="0" r="22" fill="var(--bg-subtle)" stroke="var(--accent-primary)" stroke-width="2"/>
+      
+      <!-- Rank Letter -->
+      <text x="0" y="10" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="30" font-weight="900" text-anchor="middle" filter="url(#rankGlow)">S</text>
     </g>
 
-    <!-- Total PRs -->
-    <g transform="translate(154, 0)">
-      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
-      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">PULL REQUESTS</text>
-      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">Data unavailable</text>
-    </g>
-
-    <!-- Issues -->
-    <g transform="translate(308, 0)">
-      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
-      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">ISSUES</text>
-      <text x="16" y="62" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11">Data unavailable</text>
-    </g>
-
-    <!-- Stars -->
-    <g transform="translate(462, 0)">
-      <rect width="138" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
-      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">STARS EARNED</text>
-      <text x="16" y="66" fill="var(--status-warning)" font-family="var(--font-family)" font-size="24" font-weight="700">12</text>
-    </g>
-
-    <!-- Followers -->
-    <g transform="translate(616, 0)">
-      <rect width="136" height="90" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1"/>
-      <text x="16" y="32" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">FOLLOWERS</text>
-      <text x="16" y="66" fill="var(--status-success)" font-family="var(--font-family)" font-size="24" font-weight="700">12</text>
-    </g>
+    <!-- Rank Subtext -->
+    <text x="68" y="132" fill="var(--status-warning)" font-family="var(--font-manga-body)" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1px">SPECIAL S-TIER</text>
   </g>
 </svg>

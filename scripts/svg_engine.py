@@ -36,12 +36,15 @@ class SVGEngine:
         template_name: str,
         context: dict[str, Any],
         palette_override: dict[str, str] | None = None,
+        theme: str | None = None,
     ) -> str:
         """Render a Jinja2 SVG template with dynamic design system variables."""
         template = self.env.get_template(template_name)
 
+        active_theme = theme or context.get("theme")
+
         # Build design system CSS block
-        css_vars = to_css_variables(palette_override)
+        css_vars = to_css_variables(palette_override, theme=active_theme)
         font_css = generate_font_face_css()
         system_styles = f"<style>\n{font_css}\n{css_vars}\n</style>"
 

@@ -10,7 +10,7 @@
         "totalCount": 15,
         "nodes": [
           {
-            "name": "Metry",
+            "name": "Maitri",
             "stargazerCount": 24,
             "forkCount": 5,
             "primaryLanguage": { "name": "Python", "color": "#3572A5" },
@@ -22,7 +22,7 @@
             }
           },
           {
-            "name": "Kalam",
+            "name": "Oasis",
             "stargazerCount": 19,
             "forkCount": 3,
             "primaryLanguage": { "name": "C++", "color": "#f34b7d" },

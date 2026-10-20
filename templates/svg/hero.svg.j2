@@ -1,7 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ width | default(800) }} {{ height | default(280) }}" width="{{ width | default(800) }}" height="{{ height | default(280) }}" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ width | default(800) }} {{ height | default(340) }}" width="{{ width | default(800) }}" height="{{ height | default(340) }}" fill="none">
   {{ system_styles | safe }}
-  
-  <!-- Terminal Window Background -->
+
+  <defs>
+    <!-- Manga Screentone Patterns -->
+    <pattern id="mangaDots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1.2" fill="var(--accent-primary)" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="mangaTitleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="var(--accent-primary)"/>
+    </filter>
+  </defs>
+
+  {% if is_manga %}
+  <!-- Manga Panel Outer Border & Background -->
+  <rect width="100%" height="100%" rx="6" fill="var(--bg-canvas)" stroke="var(--border-muted)" stroke-width="3"/>
+  <rect x="6" y="6" width="788" height="{{ height - 12 }}" rx="4" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
+
+  <!-- Manga Screentone Texture -->
+  <rect x="6" y="6" width="788" height="{{ height - 12 }}" fill="url(#mangaDots)"/>
+
+  <!-- Speed Lines Background Layer -->
+  {% if speed_lines %}
+  <g class="manga-speed-lines" opacity="0.8">
+    {{ speed_lines | safe }}
+  </g>
+  {% endif %}
+
+  <!-- Manga Panel Corner Brackets -->
+  <g stroke="var(--border-muted)" stroke-width="4" fill="none">
+    <path d="M12 36 L12 12 L36 12"/>
+    <path d="M788 36 L788 12 L764 12"/>
+    <path d="M12 {{ height - 36 }} L12 {{ height - 12 }} L36 {{ height - 12 }}"/>
+    <path d="M788 {{ height - 36 }} L788 {{ height - 12 }} L764 {{ height - 12 }}"/>
+  </g>
+
+  <!-- Chapter Header Badge -->
+  <g transform="translate(24, 20)">
+    <rect width="270" height="26" rx="4" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/>
+    <polygon points="12,7 18,13 12,19" fill="var(--accent-primary)"/>
+    <text x="26" y="17" fill="var(--text-primary)" font-family="var(--font-manga-body)" font-size="11" font-weight="700" letter-spacing="1px">{{ chapter_title | default("CHAPTER 1: THE RISING DEVELOPER") }}</text>
+  </g>
+
+  <!-- Kanji Onomatopoeia Accent (ゴゴゴ) -->
+  <g fill="var(--accent-primary)" fill-opacity="0.3" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900">
+    <text x="240" y="80" font-size="28" transform="rotate(-8 240 80)">ゴ</text>
+    <text x="275" y="70" font-size="22" transform="rotate(-4 275 70)">ゴ</text>
+    <text x="305" y="64" font-size="18">ゴ</text>
+  </g>
+
+  <!-- Protagonist Manga Illustration -->
+  <g class="protagonist-section">
+    {{ protagonist_art | safe }}
+  </g>
+
+  <!-- Protagonist Info & Status Panel -->
+  <g class="profile-info" transform="translate(330, 50)">
+    <!-- Protagonist Name with Dramatic Manga Display Font -->
+    <text x="0" y="44" fill="var(--text-primary)" font-family="var(--font-manga-title)" font-size="44" font-weight="900" letter-spacing="2px" filter="url(#mangaTitleShadow)">{{ name }}</text>
+    
+    <!-- Epithet / Subtitle Badge -->
+    <g transform="translate(0, 58)">
+      <rect width="250" height="24" rx="3" fill="var(--accent-subtle)" stroke="var(--accent-primary)" stroke-width="1"/>
+      <text x="12" y="16" fill="var(--accent-primary)" font-family="var(--font-manga-body)" font-size="12" font-weight="700" letter-spacing="1.5px">⚔️ {{ protagonist_name | upper }}</text>
+    </g>
+
+    <text x="0" y="106" fill="var(--text-secondary)" font-family="var(--font-manga-body)" font-size="14" font-weight="600">[ AI ENGINEER | FULL STACK | BUILDER ]</text>
+
+    <!-- Character Status Card -->
+    <g transform="translate(0, 122)">
+      <rect width="430" height="130" rx="6" fill="var(--bg-subtle)" stroke="var(--border-muted)" stroke-width="1.5"/>
+      <line x1="0" y1="32" x2="430" y2="32" stroke="var(--border-muted)" stroke-width="1"/>
+
+      <!-- Live Quest Status Indicator -->
+      <circle cx="16" cy="16" r="4" fill="var(--status-success)">
+        {{ pulse_anim | safe }}
+      </circle>
+      <text x="28" y="20" fill="var(--status-success)" font-family="var(--font-manga-body)" font-size="11" font-weight="700">{{ status }}</text>
+
+      <!-- Details -->
+      <text x="16" y="56" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">REALM / LOCATION: <tspan fill="var(--text-primary)">{{ location }}</tspan></text>
+      <text x="16" y="80" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">CURRENT QUEST: <tspan fill="var(--accent-primary)" font-weight="700">{{ focus }}</tspan></text>
+      <text x="16" y="104" fill="var(--text-muted)" font-family="var(--font-family)" font-size="11">GUILD AVAILABILITY: <tspan fill="var(--text-primary)">{{ availability }}</tspan></text>
+    </g>
+  </g>
+
+  {% else %}
+  <!-- Terminal Window Background (Fallback) -->
   <rect width="100%" height="100%" rx="8" fill="var(--bg-surface)" stroke="var(--border-muted)" stroke-width="1"/>
   
   <!-- Terminal Header Controls -->
@@ -15,21 +99,19 @@
   <!-- Horizontal Separator -->
   <line x1="0" y1="36" x2="100%" y2="36" stroke="var(--border-muted)" stroke-width="1"/>
   
-  <!-- Vector Name Artwork (assets/data/name.svg) -->
+  <!-- Vector Name Artwork -->
   <g transform="translate(0, 20)">
     {{ vector_name | safe }}
-    <text x="24" y="112" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11" font-weight="700">[ AI ENGINEER | FULL STACK | ICPC ]</text>
+    <text x="24" y="112" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="11" font-weight="700">[ AI ENGINEER | FULL STACK | BUILDER ]</text>
   </g>
   
   <!-- Status & Profile Info Block -->
   <g class="profile-info" transform="translate(420, 60)">
-    <!-- Status Indicator Dot -->
     <circle cx="8" cy="8" r="4" fill="var(--status-success)">
       {{ pulse_anim | safe }}
     </circle>
     <text x="20" y="12" fill="var(--status-success)" font-family="var(--font-family)" font-size="12" font-weight="500">{{ status }}</text>
     
-    <!-- User Details -->
     <text x="0" y="44" fill="var(--text-primary)" font-family="var(--font-family)" font-size="20" font-weight="700">{{ name }}</text>
     <text x="0" y="68" fill="var(--text-secondary)" font-family="var(--font-family)" font-size="13">{{ title }}</text>
     
@@ -37,4 +119,5 @@
     <text x="0" y="124" fill="var(--text-muted)" font-family="var(--font-family)" font-size="12">CURRENT FOCUS: <tspan fill="var(--accent-primary)">{{ focus }}</tspan></text>
     <text x="0" y="144" fill="var(--text-muted)" font-family="var(--font-family)" font-size="12">AVAILABILITY: <tspan fill="var(--text-primary)">{{ availability }}</tspan></text>
   </g>
+  {% endif %}
 </svg>

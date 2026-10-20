@@ -8,32 +8,43 @@
 
 <br />
 
-## 👨‍💻 About Me
+## ⚔️ Character Profile // About Me
 
 {% if config.profile.status %}
+- 🗡️ **Protagonist Epithet:** {{ (config.manga.protagonist_name if config.manga is defined and config.manga.protagonist_name else "The Code Architect") }}
 - 🔭 **Current Focus:** {{ config.profile.focus }}
 - 💼 **Status:** {{ config.profile.status }}
-- 📍 **Location:** {{ config.profile.location }}
-- ⚡ **Availability:** {{ config.profile.availability }}
+- 📍 **Realm / Location:** {{ config.profile.location }}
+- ⚡ **Guild Availability:** {{ config.profile.availability | default("Open to opportunities") }}
 {% endif %}
 
 ---
 
-<h2 align="center">📊 Live GitHub Statistics</h2>
+<h2 align="center">⚡ Power Level Assessment &amp; Live Statistics</h2>
+
+{% if assets.power_level %}
+<div align="center">
+
+![Power Level Assessment]({{ assets.power_level }})
+
+</div>
+
+<br />
+{% endif %}
 
 <div align="center">
 
 <a href="https://github.com/{{ config.github.username }}">
-  <img src="https://github-readme-stats.vercel.app/api?username={{ config.github.username }}&show_icons=true&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3&icon_color=58A6FF" alt="GitHub Readme Stats" height="170" />
+  <img src="https://github-readme-stats.vercel.app/api?username={{ config.github.username }}&show_icons=true&theme=dark&bg_color=0A0A0F&border_color=E94560&title_color=E94560&text_color=EAEAEA&icon_color=E94560" alt="GitHub Readme Stats" height="170" />
 </a>
 <a href="https://github.com/{{ config.github.username }}">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user={{ config.github.username }}&theme=dark&background=0D1117&border=30363D&stroke=58A6FF&ring=58A6FF&fire=58A6FF&currStreakNum=E6EDF3&sideNums=E6EDF3&dates=8B949E" alt="GitHub Streak Stats" height="170" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user={{ config.github.username }}&theme=dark&background=0A0A0F&border=E94560&stroke=E94560&ring=E94560&fire=E94560&currStreakNum=EAEAEA&sideNums=EAEAEA&dates=9D9DA6" alt="GitHub Streak Stats" height="170" />
 </a>
 
 <br /><br />
 
 <a href="https://github.com/{{ config.github.username }}">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ config.github.username }}&layout=compact&theme=dark&bg_color=0D1117&border_color=30363D&title_color=58A6FF&text_color=E6EDF3" alt="Top Languages" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ config.github.username }}&layout=compact&theme=dark&bg_color=0A0A0F&border_color=E94560&title_color=E94560&text_color=EAEAEA" alt="Top Languages" height="165" />
 </a>
 
 </div>
@@ -41,7 +52,7 @@
 ---
 
 {% if assets.projects %}
-<h2 align="center">🚀 Featured Projects</h2>
+<h2 align="center">📜 Active Quests // Featured Projects</h2>
 
 <div align="center">
 
@@ -52,36 +63,40 @@
 
 ---
 
-## 🛠️ Tech Stack & Skills
+## 🔮 Arsenal &amp; Abilities // Tech Stack &amp; Skills
 
-- **Languages:** Python, TypeScript, JavaScript, C++, HTML5, CSS3
-- **Frameworks & AI:** FastAPI, React, PyTorch, ONNX, LLM Tools
-- **Database & DevOps:** PostgreSQL, WebSockets, Git, GitHub Actions
-
----
-
-## 🗺️ Engineering Timeline & ICPC Journey
-
-- 🎓 **Computer Science Engineering Student** — Deepening expertise in Algorithms & Competitive Programming.
-- 🤖 **Builder & AI Researcher** — Developing *Kalam* (Offline AI Assistant) & *Metry* (AI Wellness Platform).
-- 🏆 **ICPC Competitor** — Active ICPC team journeys and algorithmic problem solving.
+- ⚔️ **Core Weapons (Languages):** Python, TypeScript, JavaScript, C++, HTML5, CSS3
+- 🧬 **AI &amp; Framework Jutsus:** FastAPI, React, PyTorch, ONNX, Generative AI Studio, LLM Orchestration
+- 🛡️ **DevOps &amp; Infrastructure:** PostgreSQL, WebSockets, Git, GitHub Actions, Docker
 
 ---
 
-## 📫 Connect & Contact
+<h2 align="center">📖 Story Arc // Engineering Timeline</h2>
 
-- **Email:** [contact@vaibhavsolanki.dev](mailto:contact@vaibhavsolanki.dev)
-- **GitHub:** [@{{ config.github.username }}](https://github.com/{{ config.github.username }})
-- **Portfolio:** [vaibhavsolanki.dev](https://vaibhavsolanki.dev)
+{% if assets.story_arc %}
+<div align="center">
+
+![Story Arc Timeline]({{ assets.story_arc }})
+
+</div>
+{% else %}
+- 🎓 **Computer Science Engineering Student** — Deepening expertise in Computer Science, Systems &amp; AI Engineering.
+- 🤖 **Builder &amp; AI Engineer** — Developing *Oasis* (Generative AI Creator Platform) &amp; *Maitri* (AI Wellness Platform).
+- ⚡ **Workflow &amp; Automation Specialist** — Creating *Mantri* (Intelligent Autonomous Workflow Automation).
+{% endif %}
+
+---
+
+## 🏯 Guild Contact // Connect &amp; Contact
+
+- 📬 **Raven / Email:** [contact@vaibhavsolanki.dev](mailto:contact@vaibhavsolanki.dev)
+- 📜 **Adventurer's Code (GitHub):** [@{{ config.github.username }}](https://github.com/{{ config.github.username }})
+- 🌐 **Protagonist Sanctum (Portfolio):** [vaibhavsolanki.dev](https://vaibhavsolanki.dev)
 
 ---
 
 <div align="center">
 
-{% if assets.footer %}
-![Footer]({{ assets.footer }})
-{% else %}
-<sub>Built with ⚡ by <b>GitHub Profile 2.0 Hybrid Engine</b></sub>
-{% endif %}
+<sub>Crafted with ⚔️ by <b>Manga Protagonist Engine 2.0</b> // 続く</sub>
 
 </div>

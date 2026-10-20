@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" width="320" height="360" fill="none">
+  <defs>
+    <!-- Aura Glow Filter -->
+    <filter id="mangaAuraGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Crimson Gradient for Accent Details -->
+    <linearGradient id="mangaCrimsonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B81"/>
+      <stop offset="100%" stop-color="#E94560"/>
+    </linearGradient>
+
+    <!-- Hair Shading Gradient -->
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D2D44"/>
+      <stop offset="60%" stop-color="#181824"/>
+      <stop offset="100%" stop-color="#0E0E17"/>
+    </linearGradient>
+
+    <!-- Skin Cel Shading Gradient -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE0BD"/>
+      <stop offset="100%" stop-color="#F2C194"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Aura Energy Backlight -->
+  <circle cx="160" cy="180" r="140" fill="#E94560" fill-opacity="0.12" filter="url(#mangaAuraGlow)"/>
+  <circle cx="160" cy="180" r="110" fill="#00D4FF" fill-opacity="0.08" filter="url(#mangaAuraGlow)"/>
+
+  <g id="protagonist-character" transform="translate(10, 10)">
+    <!-- Back Hair Spikes -->
+    <path d="M70 140 L40 100 L75 95 L50 60 L95 65 L80 30 L130 45 L160 15 L190 45 L240 30 L225 65 L270 60 L245 95 L280 100 L250 140 Z" fill="#12121A" stroke="#E94560" stroke-width="2"/>
+
+    <!-- Shoulders / High-Collar Cyber Hoodie -->
+    <!-- Base Jacket Body -->
+    <path d="M40 330 C40 270 75 230 115 220 L150 240 L185 220 C225 230 260 270 260 330 Z" fill="#161B28" stroke="#2A2A3E" stroke-width="2"/>
+    
+    <!-- Cyber Hoodie Trim / Collar -->
+    <path d="M100 235 L120 185 L150 210 L180 185 L200 235 L175 270 L150 260 L125 270 Z" fill="#1F2436" stroke="#E94560" stroke-width="2.5"/>
+    <path d="M120 185 L150 210 L180 185 L180 235 L150 255 L120 235 Z" fill="#121522" stroke="#FF6B81" stroke-width="1.5"/>
+
+    <!-- Neon Circuit Lines on Jacket -->
+    <path d="M70 330 L75 280 L105 260" stroke="#E94560" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="105" cy="260" r="3" fill="#00D4FF"/>
+    <path d="M230 330 L225 280 L195 260" stroke="#E94560" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="195" cy="260" r="3" fill="#00D4FF"/>
+
+    <!-- Neck & Jawline -->
+    <polygon points="135,160 165,160 170,205 130,205" fill="#E2AC7E"/>
+    <polygon points="105,120 195,120 180,180 150,205 120,180" fill="url(#skinGrad)" stroke="#12121A" stroke-width="2"/>
+
+    <!-- Manga Ears with Tech Earring -->
+    <polygon points="98,125 90,140 102,150 106,135" fill="#F2C194" stroke="#12121A" stroke-width="1.5"/>
+    <polygon points="202,125 210,140 198,150 194,135" fill="#F2C194" stroke="#12121A" stroke-width="1.5"/>
+    <!-- Tech Earring -->
+    <circle cx="89" cy="145" r="2.5" fill="#E94560"/>
+    <line x1="89" y1="147.5" x2="89" y2="155" stroke="#00D4FF" stroke-width="1.5"/>
+
+    <!-- Face Details (Manga Aesthetics) -->
+    <!-- Determined Eyebrows -->
+    <polygon points="115,122 142,127 142,130 115,126" fill="#12121A"/>
+    <polygon points="185,122 158,127 158,130 185,126" fill="#12121A"/>
+
+    <!-- Left Manga Eye -->
+    <g class="manga-eye-left">
+      <!-- Upper Lash Line -->
+      <path d="M116 136 Q130 131 142 138" stroke="#12121A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Lower Lash Line -->
+      <path d="M122 148 Q132 150 138 147" stroke="#12121A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <!-- Iris with Crimson Flame -->
+      <ellipse cx="130" cy="141" rx="6" ry="7" fill="#12121A"/>
+      <ellipse cx="130" cy="142" rx="4.5" ry="5.5" fill="url(#mangaCrimsonGrad)"/>
+      <circle cx="130" cy="141" r="2.5" fill="#0A0A0F"/>
+      <!-- Catchlight Sparkles (Anime Glint) -->
+      <circle cx="128" cy="138" r="1.8" fill="#FFFFFF"/>
+      <circle cx="132" cy="144" r="0.8" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Right Manga Eye -->
+    <g class="manga-eye-right">
+      <!-- Upper Lash Line -->
+      <path d="M184 136 Q170 131 158 138" stroke="#12121A" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Lower Lash Line -->
+      <path d="M178 148 Q168 150 162 147" stroke="#12121A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <!-- Iris with Crimson Flame -->
+      <ellipse cx="170" cy="141" rx="6" ry="7" fill="#12121A"/>
+      <ellipse cx="170" cy="142" rx="4.5" ry="5.5" fill="url(#mangaCrimsonGrad)"/>
+      <circle cx="170" cy="141" r="2.5" fill="#0A0A0F"/>
+      <!-- Catchlight Sparkles (Anime Glint) -->
+      <circle cx="168" cy="138" r="1.8" fill="#FFFFFF"/>
+      <circle cx="172" cy="144" r="0.8" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Nose (Minimalist Sharp Manga Style) -->
+    <polygon points="150,152 147,163 153,163" fill="#D99B6A"/>
+
+    <!-- Confident Smirk / Mouth -->
+    <path d="M140 178 Q150 183 162 177" stroke="#12121A" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M162 177 L165 174" stroke="#12121A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+
+    <!-- Front Spiky Protagonist Hair with Layered Highlights -->
+    <path d="M90 120 C85 85 105 50 140 40 C175 40 210 60 215 110 L195 90 L185 115 L175 80 L160 120 L150 75 L135 118 L125 85 L110 115 L100 95 Z" fill="url(#hairGrad)" stroke="#12121A" stroke-width="2.5"/>
+    
+    <!-- Dynamic Front Hair Locks (Bangs) -->
+    <polygon points="148,70 162,118 152,110" fill="#E94560" fill-opacity="0.8"/>
+    <polygon points="132,75 142,122 135,112" fill="#3A3A54"/>
+    <polygon points="165,80 178,115 170,105" fill="#3A3A54"/>
+    <polygon points="115,85 125,120 118,112" fill="#E94560" fill-opacity="0.8"/>
+
+    <!-- Forehead Tech Headband / Mark -->
+    <path d="M118 96 Q150 88 182 96" stroke="#E94560" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <circle cx="150" cy="92" r="3" fill="#00D4FF"/>
+  </g>
+</svg>

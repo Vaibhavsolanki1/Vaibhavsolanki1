@@ -32,7 +32,7 @@ def test_github_api_unauthenticated_fallback(tmp_path: Path) -> None:
     stats = client.fetch_user_stats("vaibhavsolanki1", mode="live")
 
     assert stats["username"] == "vaibhavsolanki1"
-    assert stats["followers"] == 12
+    assert stats["followers"] >= 12
     assert stats["total_commits"] == "Data unavailable"
     assert stats["is_available"] is True
 

@@ -15,6 +15,7 @@ def test_generate_projects(tmp_path: Path) -> None:
 
     assert "<svg" in projects_svg
     assert "FEATURED PROJECTS" in projects_svg
-    assert "Metry" in projects_svg
-    assert "Kalam" in projects_svg
+    assert "Maitri" in projects_svg
+    assert "Oasis" in projects_svg
+    assert "Mantri" in projects_svg
     assert (tmp_path / "projects.svg").exists()
