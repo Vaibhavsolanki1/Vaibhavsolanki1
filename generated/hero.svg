@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280" fill="none"><style>
-/* Font file assets/fonts/JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
-=======
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" height="340" fill="none"><style>
 /* Font file assets\fonts\JetBrainsMono-Regular.ttf not found. Utilizing system fallback stack. */
->>>>>>> Stashed changes
 @font-face {
   font-family: 'JetBrains Mono';
   src: local('JetBrains Mono'), local('Consolas'), local('SFMono-Regular');
